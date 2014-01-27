@@ -12,7 +12,7 @@
     "angular-resource": "#1.2.10",
     "angular-route": "#1.2.10",
     "angular-sanitize": "#1.2.10",
-    "bootstrap": "twbs/bootstrap#v2.3.2",
+    "bootstrap": "twbs/bootstrap#v3.0.3",
     "font-awesome": "FortAwesome/Font-Awesome#v4.0.3",
     "jquery": "2.0.3",
     "moment": "moment/moment#2.5.0",

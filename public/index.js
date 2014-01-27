@@ -22,20 +22,7 @@ require({
     'angular-route': 'vendor/angular-route/angular-route',
     'angular-sanitize': 'vendor/angular-sanitize/angular-sanitize',
 
-    'bootstrap-affix': 'vendor/bootstrap/js/bootstrap-affix',
-    'bootstrap-alert': 'vendor/bootstrap/js/bootstrap-alert',
-    'bootstrap-button': 'vendor/bootstrap/js/bootstrap-button',
-    'bootstrap-carousel': 'vendor/bootstrap/js/bootstrap-carousel',
-    'bootstrap-collapse': 'vendor/bootstrap/js/bootstrap-collapse',
-    'bootstrap-dropdown': 'vendor/bootstrap/js/bootstrap-dropdown',
-    'bootstrap-modal': 'vendor/bootstrap/js/bootstrap-modal',
-    'bootstrap-popover': 'vendor/bootstrap/js/bootstrap-popover',
-    'bootstrap-scrollspy': 'vendor/bootstrap/js/bootstrap-scrollspy',
-    'bootstrap-switch': 'vendor/bootstrap-switch/static/js/bootstrap-switch',
-    'bootstrap-tab': 'vendor/bootstrap/js/bootstrap-tab',
-    'bootstrap-tooltip': 'vendor/bootstrap/js/bootstrap-tooltip',
-    'bootstrap-transition': 'vendor/bootstrap/js/bootstrap-transition',
-    'bootstrap-typeahead': 'vendor/bootstrap/js/bootstrap-typeahead',
+    'bootstrap': 'vendor/bootstrap/dist/js/bootstrap',
 
     'jquery': 'vendor/jquery/jquery',
 
@@ -57,26 +44,14 @@ require({
     'angular-route': ['angular'],
     'angular-sanitize': ['angular'],
 
-    'bootstrap-affix': ['jquery'],
-    'bootstrap-alert': ['jquery'],
-    'bootstrap-button': ['jquery'],
-    'bootstrap-carousel': ['jquery'],
-    'bootstrap-collapse': ['jquery'],
-    'bootstrap-dropdown': ['jquery', 'bootstrap-button'],
-    'bootstrap-modal': ['jquery', 'bootstrap-transition'],
-    'bootstrap-popover': ['jquery', 'bootstrap-tooltip'],
-    'bootstrap-scrollspy': ['jquery'],
-    'bootstrap-tab': ['jquery'],
-    'bootstrap-tooltip': ['jquery'],
-    'bootstrap-transition': ['jquery'],
-    'bootstrap-typeahead': ['jquery'],
+    'bootstrap': ['jquery'],
 
     'jquery': {
       exports: 'jQuery'
     },
 
     'restangular': {
-      deps: [ 'angular' ]
+      deps: [ 'angular', 'underscore' ]
     },
 
     'underscore': {
