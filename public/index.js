@@ -73,13 +73,15 @@ define([
 
   , 'angular-route'
   , 'restangular'
-
 ], function ($, angular) {
 
   $(function () {
 
     angular
-      .module('taw', ['ngRoute', 'restangular'])
+      .module('taw', [
+        'ngRoute',
+        'restangular'
+      ])
 
       .config(function ($routeProvider) {
         $routeProvider.otherwise({
