@@ -1,3 +1,5 @@
-GET        /                    controllers.Application.index
+GET        /                           controllers.Application.index
 
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET        /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET        /services/groups/:id        services.Groups.retrieveOneById(id:BSONObjectID)
