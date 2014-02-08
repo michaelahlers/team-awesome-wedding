@@ -69,13 +69,16 @@ require({
 // }
 })
 
-require([
+define([
   'jquery'
   , 'angular'
 
+  , './controller'
+  , 'text!./template.html'
+
   , 'angular-route'
   , 'restangular'
-], function ($, angular) {
+], function ($, angular, controller, template) {
   $(function () {
     angular
       .module('taw', [
@@ -83,10 +86,18 @@ require([
         'restangular'
       ])
 
-      .config(function ($routeProvider) {
-        $routeProvider.otherwise({
-          redirectTo: '/'
-        })
+      .config(function ($routeProvider, $locationProvider) {
+        $routeProvider
+          .when('/', {
+            controller: controller,
+            template: template
+          })
+          .otherwise({
+            redirectTo: '/'
+          })
+
+        // configure html5 to get links working on jsfiddle
+        $locationProvider.html5Mode(true)
       })
 
       .run(function (Restangular) {
