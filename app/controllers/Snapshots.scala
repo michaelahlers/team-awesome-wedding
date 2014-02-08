@@ -8,8 +8,11 @@ import play.api.libs.json.Json._
 import java.nio.file.{Files, Path}
 import scala.io.Source
 import play.api.libs.concurrent.Execution.Implicits._
+import play.api.mvc.{SimpleResult, Controller, Action}
 
-object Snapshots {
+object Snapshots
+  extends Controller {
+
   private val logger = Logger(getClass)
 
   def restore(snapshot: File): Future[JsValue] = restore(snapshot.toPath)
@@ -34,6 +37,11 @@ object Snapshots {
     Future
       .sequence(groups ++ invitees)
       .map(_ => snapshot)
+  }
+
+  def restore(): Action[JsValue] = Action.async(parse.json) {
+    implicit request =>
+      restore(request.body).map(Ok(_))
   }
 
   private def mkGroup(definition: JsValue): Future[JsValue] = {
