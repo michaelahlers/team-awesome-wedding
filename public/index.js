@@ -80,13 +80,15 @@ define([
   , 'restangular'
 
   , './invitation/index'
+  , './itinerary/index'
 ], function ($, angular, controller, template) {
   $(function () {
     angular
       .module('taw', [
         'ngRoute',
         'restangular',
-        'taw.invitation'
+        'taw.invitation',
+        'taw.itinerary'
       ])
 
       .config(function ($routeProvider, $locationProvider) {
