@@ -1,5 +1,13 @@
+@import '../../public/vendor/bootstrap/less/mixins';
+@import 'variables';
+
 .card {
   position: relative;
   min-width: 100%;
   min-height: 100%;
+
+  &.card-invitation {
+    #gradient > .vertical(@cream, darken(@cream, 5%));
+    vertical-align: middle;
+  }
 }
