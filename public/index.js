@@ -19,9 +19,9 @@ require({
     'angular-resource': 'webjars/angularjs/1.2.11/angular-resource.min',
     'angular-route': 'webjars/angularjs/1.2.11/angular-route.min',
     'angular-sanitize': 'webjars/angularjs/1.2.11/angular-sanitize.min',
-//
-//    'bootstrap': 'vendor/bootstrap/dist/js/bootstrap',
-//
+
+    'bootstrap': 'vendor/bootstrap/dist/js/bootstrap.min',
+
     'jquery': 'webjars/jquery/2.1.0/jquery.min',
 
     'moment': 'webjars/momentjs/2.5.0/min/moment.min',
@@ -41,9 +41,9 @@ require({
     'angular-resource': ['angular'],
     'angular-route': ['angular'],
     'angular-sanitize': ['angular'],
-//
-//    'bootstrap': ['jquery'],
-//
+
+    'bootstrap': ['jquery'],
+
     'jquery': {
       exports: 'jQuery'
     },
