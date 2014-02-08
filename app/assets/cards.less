@@ -8,6 +8,14 @@
 
   &.card-invitation {
     #gradient > .vertical(@cream, darken(@cream, 5%));
-    vertical-align: middle;
+
+    display: table;
+
+    > .foo {
+      height: 100%;
+      width: 100%;
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
 }
