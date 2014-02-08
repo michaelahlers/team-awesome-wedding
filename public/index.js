@@ -76,8 +76,6 @@ require([
   , 'angular-route'
   , 'restangular'
 ], function ($, angular) {
-
-
   $(function () {
     angular
       .module('taw', [
