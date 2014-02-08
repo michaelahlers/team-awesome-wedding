@@ -2,12 +2,3 @@ bootstrap/docs
 font-awesome/scss
 font-awesome/css
 font-awesome/src
-moment/lang
-requirejs/dist
-requirejs/docs
-requirejs/tests
-requirejs-plugins/examples
-restangular/src
-restangular/test
-underscore/docs
-underscore/test

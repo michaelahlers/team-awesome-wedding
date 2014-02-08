@@ -1,112 +1,105 @@
 'use strict'
 
 require({
-//  waitSeconds: 60,
-//
-//  map: {
-//    '*': {
-//      /* RequireJS plugins. */
-//      'async': 'vendor/requirejs-plugins/src/async',
-//      'json': 'vendor/requirejs-plugins-master/src/json',
-//      'goog': 'vendor/requirejs-plugins-master/src/goog',
-//      'noext': 'vendor/requirejs-plugins-master/src/noext',
-//      'text': 'vendor/requirejs-text/text'
-//    }
-//  },
-//
+  map: {
+    '*': {
+      /* RequireJS plugins. */
+      'async': 'webjars/requirejs-plugins/3ff54566f8/async',
+      'json': 'webjars/requirejs-plugins/3ff54566f8/json',
+      'goog': 'webjars/requirejs-plugins/3ff54566f8/goog',
+      'noext': 'webjars/requirejs-plugins/3ff54566f8/noext',
+      'text': 'webjars/requirejs-text/2.0.10/text'
+    }
+  },
+
   paths: {
     /* Core AngularJS packages. */
-//    'angular': 'vendor/angular/angular',
-//    'angular-animate': 'vendor/angular-animate/angular-animate',
-//    'angular-resource': 'vendor/angular-resource/angular-resource',
-//    'angular-route': 'vendor/angular-route/angular-route',
-//    'angular-sanitize': 'vendor/angular-sanitize/angular-sanitize',
+    'angular': 'webjars/angularjs/1.2.11/angular.min',
+    'angular-animate': 'webjars/angularjs/1.2.11/angular-animate.min',
+    'angular-resource': 'webjars/angularjs/1.2.11/angular-resource.min',
+    'angular-route': 'webjars/angularjs/1.2.11/angular-route.min',
+    'angular-sanitize': 'webjars/angularjs/1.2.11/angular-sanitize.min',
 //
 //    'bootstrap': 'vendor/bootstrap/dist/js/bootstrap',
 //
-    'jquery': 'webjars/jquery/2.1.0/jquery.min'
-//
-//    'moment': 'vendor/moment/moment',
-//
-//    'restangular': 'vendor/restangular/dist/restangular',
-//
-//    'underscore': 'vendor/underscore/underscore'
+    'jquery': 'webjars/jquery/2.1.0/jquery.min',
+
+    'moment': 'webjars/momentjs/2.5.0/min/moment.min',
+
+    'restangular': 'webjars/restangular/1.3.1/restangular.min',
+
+    'underscore': 'webjars/underscorejs/1.5.2/underscore-min'
   },
-//
+
   shim: {
-//    'angular': {
-//      deps: [ 'jquery' ],
-//      exports: 'angular'
-//    },
-//
-//    'angular-animate': ['angular'],
-//    'angular-resource': ['angular'],
-//    'angular-route': ['angular'],
-//    'angular-sanitize': ['angular'],
+    'angular': {
+      deps: [ 'jquery' ],
+      exports: 'angular'
+    },
+
+    'angular-animate': ['angular'],
+    'angular-resource': ['angular'],
+    'angular-route': ['angular'],
+    'angular-sanitize': ['angular'],
 //
 //    'bootstrap': ['jquery'],
 //
     'jquery': {
       exports: 'jQuery'
+    },
+
+    'moment': {
+      exports: 'moment'
+    },
+
+    'restangular': {
+      deps: [ 'angular', 'underscore' ]
+    },
+
+    'underscore': {
+      exports: '_'
     }
-//
-//    'restangular': {
-//      deps: [ 'angular', 'underscore' ]
-//    },
-//
-//    'underscore': {
-//      exports: '_'
-//    }
   }
-//
-//  optimize: 'uglify2',
-//  uglify2: {
-//    warnings: false,
-//    /* Mangling defeats Angular injection by function argument names. */
-//    mangle: false
-//  }
+
+// optimize: 'uglify2',
+// uglify2: {
+//   warnings: false,
+//   /* Mangling defeats Angular injection by function argument names. */
+//   mangle: false
+// }
 })
 
 require([
   'jquery'
-//  , 'angular'
-//
-//  , 'angular-route'
-//  , 'restangular'
-], function ($) {
+  , 'angular'
 
+  , 'angular-route'
+  , 'restangular'
+], function ($, angular) {
 
 
   $(function () {
-    console.log('Loaded!')
-//
-//    angular
-//      .module('taw', [
-//        'ngRoute',
-//        'restangular'
-//      ])
-//
-//      .config(function ($routeProvider) {
-//        $routeProvider.otherwise({
-//          redirectTo: '/'
-//        })
-//      })
-//
-//      .run(function (Restangular) {
-//        Restangular.setBaseUrl('/services')
-//
-//        Restangular.setRestangularFields({
-//          id: "_id.$oid"
-//        })
-//      })
-//
-//    /* The requirements on this script ensure the application module has been
-//     * defined prior to bootstrapping AngularJS. If this is done in the wrong
-//     * order, there will be visible flicker as ngCloak is removed and the main
-//     * application scope is digested. */
-//
-//    angular.bootstrap(document, ['taw'])
-//
+    angular
+      .module('taw', [
+        'ngRoute',
+        'restangular'
+      ])
+
+      .config(function ($routeProvider) {
+        $routeProvider.otherwise({
+          redirectTo: '/'
+        })
+      })
+
+      .run(function (Restangular) {
+        Restangular.setBaseUrl('/services')
+
+        Restangular.setRestangularFields({
+          id: "_id.$oid"
+        })
+      })
+
+    angular.bootstrap(document, ['taw'])
   })
 })
 
