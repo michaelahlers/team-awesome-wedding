@@ -1,4 +1,5 @@
 @import '../../public/vendor/bootstrap/less/mixins';
+@import '../../public/vendor/bootstrap/less/variables';
 @import 'variables';
 
 .card {
@@ -7,26 +8,55 @@
   min-height: 100%;
 
   &.card-invitation {
-    #gradient > .vertical(@cream, darken(@cream, 5%));
+    display: table;
+    padding: @grid-gutter-width;
 
     font-family: 'Cinzel', serif;
 
-    h1 {
-      font-size: 3vw;
+    &::after {
+      content: '';
+      background: url('vendor/subtlepatterns/groovepaper/groovepaper.png');
+      opacity: 0.25;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
     }
-
-    p {
-      font-size: 1.5vw;
-    }
-
-    display: table;
 
     > .content {
-      margin-top: -50%;
+
+      #gradient > .vertical(@cream, darken(@cream, 5%));
+      .border-left-radius(@grid-gutter-width/4);
+      .border-right-radius(@grid-gutter-width/4);
+
+      box-shadow: 1px 1px 0px 0px darken(@cream, 10%);
+
       height: 100%;
       width: 100%;
       display: table-cell;
       vertical-align: middle;
+
+      > .container-fluid {
+        // margin-top: -5%;
+
+        h1 {
+          font-size: 3vw;
+          text-shadow: 1px 1px 0px lighten(@cream, 10%);
+
+          small {
+            text-shadow: none;
+          }
+
+          margin-top: @grid-gutter-width;
+          margin-bottom: @grid-gutter-width;
+        }
+
+        p {
+          font-size: 1.5vw;
+        }
+      }
     }
   }
 }
