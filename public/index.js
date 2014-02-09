@@ -80,6 +80,7 @@ define([
   , 'restangular'
 
   , './invitation/index'
+  , './response/index'
   , './itinerary/index'
 ], function ($, angular, controller, template) {
   $(function () {
@@ -88,6 +89,7 @@ define([
         'ngRoute',
         'restangular',
         'taw.invitation',
+        'taw.response',
         'taw.itinerary'
       ])
 
