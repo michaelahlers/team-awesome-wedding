@@ -3,13 +3,20 @@
     <div class="row">
       <div class="col-xs-12 col-sm-offset-3 col-sm-6">
         <div class="well">
-          <form role="form">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Please type in your code here.">
+          <p ng-show="error" class="text-danger">{{error}}</p>
+
+          <form name="groupForm" role="form" ng-submit="submit()">
+            <div class="form-group" ng-class="{'has-error':!code}">
+              <input
+                  type="text"
+                  class="form-control"
+                  ng-model="code"
+                  placeholder="Please type in your code here."
+                  ng-disabled="loading">
             </div>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary">
-                <i class="fa fa-sign-in"></i> Enter
+              <button type="submit" class="btn btn-primary" ng-disabled="!code||loading">
+                <i class="fa" ng-class="{'fa-sign-in':!loading,'fa-spinner fa-spin':loading}"></i> Enter
               </button>
             </div>
           </form>
