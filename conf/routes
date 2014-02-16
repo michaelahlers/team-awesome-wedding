@@ -1,6 +1,8 @@
 GET         /                             controllers.Application.index
 GET         /enter/:code                  controllers.Application.enter(code:String)
+GET         /login/:code                  controllers.Application.login(code:String)
 GET         /exit                         controllers.Application.exit
+GET         /logout                       controllers.Application.logout
 
 POST        /controllers/snapshots        controllers.Snapshots.restore()
 

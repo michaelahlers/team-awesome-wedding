@@ -23,22 +23,28 @@ object Application extends Controller {
     Future(Ok(views.html.index()))
   }
 
-  def enter(code: String) = Action.async {
-    implicit request =>
-      for {
-        groupOption <- Groups.findOneByCode(code)
-      } yield {
-        groupOption.map {
-          group =>
-            Redirect(routes.Application.index).withSession(Security.username -> (group \ "_id").as[BSONObjectID].stringify)
-        } getOrElse {
-          Unauthorized
-        }
+  private def mkLoginAction(code: String, result: JsValue => SimpleResult) = Action.async {
+    for {
+      groupOption <- Groups.findOneByCode(code)
+    } yield {
+      groupOption.map {
+        group =>
+          result(group).withSession(Security.username -> (group \ "_id").as[BSONObjectID].stringify)
+      } getOrElse {
+        Unauthorized
       }
+    }
   }
 
+  def enter(code: String) = mkLoginAction(code, _ => Redirect(routes.Application.index))
+
+  def login(code: String) = mkLoginAction(code, Ok(_))
+
   def exit = Action.async {
-    implicit request =>
-      Future(Redirect(routes.Application.index).withNewSession)
+    Future(Redirect(routes.Application.index).withNewSession)
+  }
+
+  def logout = Action.async {
+    Future(Ok.withNewSession)
   }
 }
