@@ -82,7 +82,6 @@ define([
 
   , './code/index'
   , './invitation/index'
-  , './response/index'
   , './itinerary/index'
 ], function ($, angular, _, controller, template) {
   $(function () {
@@ -92,7 +91,6 @@ define([
         'restangular',
         'taw.code',
         'taw.invitation',
-        'taw.response',
         'taw.itinerary'
       ])
 
