@@ -4,8 +4,9 @@ import play.api.mvc._
 import play.api.Logger
 import scala.concurrent.Future
 import play.api.libs.concurrent.Execution.Implicits._
-import services.Groups
-import play.api.libs.json.JsValue
+import services.{Invitees, Groups}
+import play.api.libs.json.{Json, JsValue}
+import Json._
 import reactivemongo.bson.BSONObjectID
 import play.modules.reactivemongo.json.BSONFormats
 
@@ -24,15 +25,20 @@ object Application extends Controller {
   }
 
   private def mkLoginAction(code: String, result: JsValue => SimpleResult) = Action.async {
-    for {
-      groupOption <- Groups.findOneByCode(code)
-    } yield {
-      groupOption.map {
-        group =>
-          result(group).withSession(Security.username -> (group \ "_id").as[BSONObjectID].stringify)
-      } getOrElse {
-        Unauthorized
-      }
+    Groups.findOneByCode(code).flatMap {
+      groupOption =>
+        groupOption.map {
+          group =>
+            val id = (group \ "_id").as[BSONObjectID]
+
+            Invitees
+              .findByGroupId(id)
+              .map(invitees => group ++ obj("invitees" -> invitees))
+              .map(result(_))
+              .map(_.withSession(Security.username -> id.stringify))
+        } getOrElse {
+          Future(Unauthorized)
+        }
     }
   }
 
