@@ -30,8 +30,7 @@ object Application extends Controller {
       } yield {
         groupOption.map {
           group =>
-            Redirect(routes.Application.index)
-              .withSession("group._id" -> (group \ "_id").as[BSONObjectID].stringify)
+            Redirect(routes.Application.index).withSession(Security.username -> (group \ "_id").as[BSONObjectID].stringify)
         } getOrElse {
           Unauthorized
         }
