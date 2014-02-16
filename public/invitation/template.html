@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-offset-3 col-sm-6">
         <div class="well">
-          <p>Dear <em>names</em>, you are cordially invited to celebrate the marriage of:</p>
+          <p>Dear {{group.invitees|pick:'givenName'|join:', ':' and '}}, you are cordially invited to celebrate the marriage of:</p>
 
           <h1 class="text-center">
             <div class="name">Heather Nieset</div>
