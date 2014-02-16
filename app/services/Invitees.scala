@@ -26,9 +26,16 @@ object Invitees
   protected def collection = db.collection[JSONCollection]("invitees0")
 
   def upsertByName(record: JsValue): Future[JsValue] = {
-    val update = obj(
+
+    val query = obj(
+      "familyName" -> record \ "familyName",
+      "givenName" -> record \ "givenName"
+    )
+
+    val updates = obj(
       "$set" -> obj(
-        "name" -> record \ "name",
+        "familyName" -> record \ "familyName",
+        "givenName" -> record \ "givenName",
         "group" -> record \ "group"
       ),
       "$inc" -> obj("_version" -> 1)
@@ -36,8 +43,8 @@ object Invitees
 
     val command = new FindAndModify(
       collection.name,
-      obj("name" -> record \ "name"),
-      Update(update, fetchNewObject = true),
+      query,
+      Update(updates, fetchNewObject = true),
       true
     )
 
