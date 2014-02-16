@@ -39,6 +39,6 @@ object Application extends Controller {
 
   def exit = Action.async {
     implicit request =>
-      Future(Ok.withNewSession)
+      Future(Redirect(routes.Application.index).withNewSession)
   }
 }
