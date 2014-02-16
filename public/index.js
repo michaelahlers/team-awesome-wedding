@@ -107,6 +107,25 @@ define([
         }
       })
 
+      .filter('join', function () {
+        return function (source, initial, last) {
+          if (angular.isArray(source)) {
+            switch (source.length) {
+              case 0:
+                return ''
+              case 1:
+                return '' + source[0]
+              case 2:
+                return source.join(last)
+              default:
+                return (_.initial(source).join(initial) + initial).trim() + last + _.last(source)
+            }
+          } else {
+            return '' + source
+          }
+        }
+      })
+
       .config(function ($routeProvider, $locationProvider) {
         $routeProvider
           .when('/', {
