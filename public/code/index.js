@@ -21,7 +21,7 @@ define([
         controller: function ($scope, $resource) {
           $scope.submit = function () {
             $scope.loading = true
-            $resource('/enter/:code').get({
+            $resource('/login/:code').get({
               code: $scope.code
             }, function (group) {
               $scope.onEnter({
