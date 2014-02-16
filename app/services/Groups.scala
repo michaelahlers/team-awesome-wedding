@@ -42,7 +42,7 @@ object Groups
     collection.db.command(command).map(_.get)
   }
 
-  def findOneByCode(code: String): Future[Option[JsValue]] = {
+  def findOneByCode(code: String): Future[Option[JsObject]] = {
     collection
       .find(obj("code" -> code))
       .cursor[JsObject]
