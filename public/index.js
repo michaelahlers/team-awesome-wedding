@@ -79,6 +79,7 @@ define([
   , 'angular-route'
   , 'restangular'
 
+  , './code/index'
   , './invitation/index'
   , './response/index'
   , './itinerary/index'
@@ -88,6 +89,7 @@ define([
       .module('taw', [
         'ngRoute',
         'restangular',
+        'taw.code',
         'taw.invitation',
         'taw.response',
         'taw.itinerary'
@@ -103,7 +105,6 @@ define([
             redirectTo: '/'
           })
 
-        // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode(true)
       })
 
