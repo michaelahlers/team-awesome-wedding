@@ -99,7 +99,8 @@ define([
         $routeProvider
           .when('/', {
             controller: controller,
-            template: template
+            template: template,
+            resolve: controller.resolve
           })
           .otherwise({
             redirectTo: '/'
