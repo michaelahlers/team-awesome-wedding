@@ -3,76 +3,66 @@
 @import 'variables';
 
 .card {
-  position: relative;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
 
   &.card-invitation,
   &.card-response {
-    display: table;
-    padding: @grid-gutter-width * 2;
+    > .card-inner {
+      min-width: 100%;
+      min-height: 100%;
 
-    font-family: 'Cinzel', serif;
+      display: table;
+      padding: @grid-gutter-width * 2;
 
-    //    &::after {
-    //      content: '';
-    //      background: url('images/orchids.png') top right no-repeat;
-    //      top: 0;
-    //      left: 100px;
-    //      width: 100%;
-    //      height: 100%;
-    //      position: absolute;
-    //    }
+      font-family: 'Cinzel', serif;
 
-    > .content {
+      > .content {
 
-      #gradient > .vertical(@cream, darken(@cream, 5%));
+        #gradient > .vertical(@cream, darken(@cream, 5%));
 
-      .border-left-radius(@grid-gutter-width/4);
-      .border-right-radius(@grid-gutter-width/4);
+        .border-left-radius(@grid-gutter-width/4);
+        .border-right-radius(@grid-gutter-width/4);
 
-      box-shadow: 1px 1px 0px 0px darken(@cream, 10%);
+        box-shadow: 1px 1px 0px 0px darken(@cream, 10%);
 
-      height: 100%;
-      width: 100%;
-      display: table-cell;
-      vertical-align: middle;
+        height: 100%;
+        width: 100%;
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
-  }
 
-  &.card-invitation {
-    > .content {
-      > .container-fluid {
-        // margin-top: -5%;
+    &.card-invitation {
+      > .content {
+        > .container-fluid {
+          h1 {
+            font-size: 3vw;
+            text-shadow: 1px 1px 0px lighten(@cream, 5%);
 
-        h1 {
-          font-size: 3vw;
-          text-shadow: 1px 1px 0px lighten(@cream, 5%);
+            margin-top: @grid-gutter-width;
+            margin-bottom: @grid-gutter-width;
+          }
 
-          margin-top: @grid-gutter-width;
-          margin-bottom: @grid-gutter-width;
-        }
+          p {
+            font-size: 1.5vw;
+            text-shadow: 1px 1px 0px lighten(@cream, 5%);
+          }
 
-        p {
-          font-size: 1.5vw;
-          text-shadow: 1px 1px 0px lighten(@cream, 5%);
-        }
+          .btn-rsvp {
 
-        .btn-rsvp {
-
+          }
         }
       }
     }
-  }
 
-  &.card-response {
-    > .content {
-      > .container-fluid {
-        // margin-top: -5%;
-
-        p {
-          font-size: 1.5vw;
-          text-shadow: 1px 1px 0px lighten(@cream, 5%);
+    &.card-response {
+      > .content {
+        > .container-fluid {
+          p {
+            font-size: 1.5vw;
+            text-shadow: 1px 1px 0px lighten(@cream, 5%);
+          }
         }
       }
     }
