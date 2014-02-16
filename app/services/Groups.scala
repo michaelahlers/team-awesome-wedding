@@ -42,9 +42,14 @@ object Groups
     collection.db.command(command).map(_.get)
   }
 
-  private def findOneById(id: BSONObjectID): Future[Option[JsObject]] = {
-    implicit def objectIdFormat = play.modules.reactivemongo.json.BSONFormats.BSONObjectIDFormat
+  def findOneByCode(code: String): Future[Option[JsValue]] = {
+    collection
+      .find(obj("code" -> code))
+      .cursor[JsObject]
+      .headOption
+  }
 
+  private def findOneById(id: BSONObjectID): Future[Option[JsObject]] = {
     collection
       .find(Json.obj("_id" -> id))
       .cursor[JsObject]
@@ -63,4 +68,5 @@ object Groups
           .getOrElse(NotFound)
       }
   }
+
 }
