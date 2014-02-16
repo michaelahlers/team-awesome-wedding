@@ -116,6 +116,56 @@ define([
         })
       })
 
+      .config(function ($httpProvider) {
+        $httpProvider.interceptors.push(function ($parse, $rootScope, $q) {
+          return {
+            'response': function (response) {
+              $parse('session._current').assign($rootScope, false)
+              return response || $q.when(response)
+            },
+
+            'responseError': function (reason) {
+              $parse('session._current').assign($rootScope, false)
+              return $q.reject(reason)
+            }
+          }
+        })
+      })
+
+      .run(function ($rootScope, $browser, $log) {
+        $rootScope.$watch('session._current', function (current) {
+          if (true === current) {
+            return
+          }
+
+          /* It turns out Angular polls the browser cookies every 100 milliseconds and transfers the changes to its own $cookies service (see https://github.com/angular/angular.js/blob/1bb33cccbe12bda4c397ddabab35ba1df85d5137/src/ngCookies/cookies.js#L58-L66 for details). This would then require polling here to get the recent values. Instead, wait for another caller to invalidate the session's currency and then ask the browser directly for cookies. */
+
+          var cookies = $browser.cookies()
+            , rawCookie = cookies['PLAY_SESSION'] || ''
+
+          var rawData = rawCookie.substring(rawCookie.indexOf('-') + 1, rawCookie.length - 1)
+          var session = {}
+
+          _.each(rawData.split('&'), function (rawPair) {
+            if (!rawPair.length) {
+              return
+            }
+
+            var pair = rawPair.split('=')
+
+            try {
+              session[pair[0]] = angular.fromJson(pair[1])
+            } catch (e) {
+              session[pair[0]] = pair[1]
+            }
+          })
+
+          session._current = true
+
+          $rootScope.session = session
+        })
+      })
+
     angular.bootstrap(document, ['taw'])
   })
 })
