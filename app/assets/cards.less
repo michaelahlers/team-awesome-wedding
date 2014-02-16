@@ -4,12 +4,15 @@
 
 .card {
 
+  &.card-code,
   &.card-invitation,
   &.card-response {
 
-    padding-top: @grid-gutter-width / 2;
+    .btn {
+      font-family: 'Cinzel', serif;
+    }
 
-    font-family: 'Cinzel', serif;
+    padding-top: @grid-gutter-width / 2;
 
     #gradient > .vertical(@cream, darken(@cream, 10%));
 
@@ -18,10 +21,12 @@
 
     //box-shadow: 1px 1px 0px 0px darken(@cream, 10%);
 
+    font-family: serif;
   }
 
   &.card-invitation {
     h1 {
+      font-family: 'Cinzel', serif;
       margin-top: @grid-gutter-width;
       margin-bottom: @grid-gutter-width;
 
