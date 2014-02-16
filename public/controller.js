@@ -3,6 +3,10 @@
 define(['angular', 'underscore'], function (angular, _) {
   var controller = function ($rootScope, $scope, $log, group) {
     $scope.group = group
+
+    $scope.setGroup = function (group) {
+      $scope.group = group
+    }
   }
 
   controller.resolve = {
