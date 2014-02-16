@@ -1,8 +1,8 @@
 <article>
-  <section class="fill">
-    <div class="fill-content" taw-code></div>
+  <section class="fill" ng-hide="group">
+    <div class="fill-content" taw-code on-enter="setGroup(group)"></div>
   </section>
-  <section class="fill">
+  <section class="fill" ng-show="group">
     <div class="fill-content" taw-invitation></div>
   </section>
   <!--<section class="fill">
