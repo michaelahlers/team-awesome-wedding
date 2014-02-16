@@ -1,11 +1,12 @@
-
-GET         /webjars/require.js           controllers.WebJarAssets.requirejs
-GET         /webjars/*file                controllers.WebJarAssets.at(file)
-
 GET         /                             controllers.Application.index
-
-GET         /*file                        controllers.Assets.at(path="/public", file)
+GET         /enter/:code                  controllers.Application.enter(code:String)
+GET         /exit                         controllers.Application.exit
 
 POST        /controllers/snapshots        controllers.Snapshots.restore()
 
 GET         /services/groups/:id          services.Groups.retrieveOneById(id:BSONObjectID)
+
+GET         /webjars/require.js           controllers.WebJarAssets.requirejs
+GET         /webjars/*file                controllers.WebJarAssets.at(file)
+
+GET         /*file                        controllers.Assets.at(path="/public", file)
