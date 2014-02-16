@@ -72,6 +72,7 @@ require({
 define([
   'jquery'
   , 'angular'
+  , 'underscore'
 
   , './controller'
   , 'text!./template.html'
@@ -83,7 +84,7 @@ define([
   , './invitation/index'
   , './response/index'
   , './itinerary/index'
-], function ($, angular, controller, template) {
+], function ($, angular, _, controller, template) {
   $(function () {
     angular
       .module('taw', [
@@ -94,6 +95,17 @@ define([
         'taw.response',
         'taw.itinerary'
       ])
+
+      .filter('pick', function ($parse) {
+        return function (source, field) {
+          var getter = $parse(field)
+          if (angular.isArray(source)) {
+            return source.map(getter)
+          } else {
+            return getter(source)
+          }
+        }
+      })
 
       .config(function ($routeProvider, $locationProvider) {
         $routeProvider
