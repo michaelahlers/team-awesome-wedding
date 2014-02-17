@@ -9,11 +9,13 @@
     width: @screen-xs-min;
   }
 
+  margin: 0 auto;
+
   background: @disappoint;
 
   padding: @grid-gutter-width;
 
-  .box-shadow(inset 0px -10px 100px 15px darken(@disappoint, 10%));
+  .box-shadow(inset 0px -10px 125px 20px darken(@disappoint, 15%));
   //.box-shadow(0px 10px 50px 0px rgba(0,0,0,0.75));
 
   &.card-invitation {
@@ -32,8 +34,11 @@
       }
 
       .join {
+        position: relative;
+        left: .25em;
         margin: -0.45em 0 -0.55em;
-        .opacity(.25);
+        //.opacity(.25);
+        color: @dancingOldFolk;
         font-size: 2em;
       }
     }
