@@ -8,6 +8,8 @@ POST        /controllers/snapshots        controllers.Snapshots.restore()
 
 GET         /services/groups/:id          services.Groups.retrieveOneById(id:BSONObjectID)
 
+PUT         /services/invitees/:id        services.Invitees.updateOneById(id:BSONObjectID)
+
 GET         /webjars/require.js           controllers.WebJarAssets.requirejs
 GET         /webjars/*file                controllers.WebJarAssets.at(file)
 
