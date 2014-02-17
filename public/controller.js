@@ -5,8 +5,18 @@ define(['angular', 'underscore'], function (angular, _) {
     $parse('current.group').assign($scope, group)
 
     $scope.$watch('current.group._id.$oid', function (id) {
-      var focus = $location.search().s || 1
-      $scope.focus = id ? focus : 0
+      if (!id) {
+        $scope.focus = 0
+        return
+      }
+
+      var s = $location.search().s
+      if (!isNaN(s) && s > 0) {
+        $scope.focus = s
+        return
+      }
+
+      $scope.focus = 2
     })
 
     $scope.$watch('focus', function (focus) {
