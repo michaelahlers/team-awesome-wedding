@@ -19,11 +19,24 @@ define([
           'group': '=tawResponse'
         },
         controller: function ($scope, Restangular) {
+          function updateAttendees() {
+            $scope.attendees = ($scope.$eval('group.invitees') || [])
+              .filter(function (invitee) {
+                return invitee.attending
+              })
+              .reduce(function (accumulator) {
+                return accumulator + 1
+              }, 0)
+          }
+
+          updateAttendees()
+
           $scope.toggleAttending = function (invitee) {
             var updates = Restangular.one('invitees', invitee._id.$oid)
             updates.attending = !invitee.attending
             updates.put().then(function (currentInvitee) {
               angular.extend(invitee, currentInvitee)
+              updateAttendees()
             })
           }
         }

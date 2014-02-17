@@ -1,19 +1,22 @@
 <div class="card card-response page-curl shadow-bottom">
   <h1>Response</h1>
 
-  <p><strong>Great!</strong> We're happy to hear back from you! Please check off each person who'll be attending.</p>
+  <p>Thanks for responding! Please click or tap on each person who'll be attending.</p>
 
-  <div class="container-fluid">
-    <div class="row invitee" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
-      <div class="col-xs-1">
-        <a ng-href="" ng-click="toggleAttending(invitee)">
-          <i class="fa" ng-class="{'fa-circle-o':!invitee.attending,'fa-check-circle-o':invitee.attending}"></i>
-        </a>
-      </div>
-      <div class="col-xs-11">
-        <a ng-href="" ng-click="toggleAttending(invitee)">{{invitee.givenName}} {{invitee.familyName}}</a>
-      </div>
-    </div>
-  </div>
+  <br>
+
+  <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
+    <button type="button" class="btn btn-lg" ng-click="toggleAttending(invitee)"
+            ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
+      <i class="fa" ng-class="{'fa-circle-o':!invitee.attending,'fa-check-circle-o':invitee.attending}"></i>
+      <span>{{invitee.givenName}} {{invitee.familyName}}</span>
+    </button>
+  </p>
+
+  <br>
+
+  <p ng-show="!attendees"><em>Nobody's been checked.</em> If nobody will be attending, no need for further action.</p>
+
+  <p ng-show="attendees"><strong>Great!</strong> We have you down for {{attendees}}.</p>
 </div>
 
