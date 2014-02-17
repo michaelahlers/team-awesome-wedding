@@ -1,15 +1,15 @@
 <article>
-  <section>
+  <section ng-class="{'hidden-left':0<focus}">
     <div class="fill">
       <div class="fill-content">
-        <div taw-code ng-model="group"></div>
+        <div taw-code ng-model="session.group"></div>
       </div>
     </div>
   </section>
-  <section>
+  <section ng-class="{'hidden-left':1<focus,'hidden-right':focus<1}">
     <div class="fill">
       <div class="fill-content">
-        <div taw-invitation></div>
+        <div taw-invitation ng-model="session.group"></div>
       </div>
     </div>
   </section>
