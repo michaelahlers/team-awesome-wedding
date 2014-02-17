@@ -18,7 +18,14 @@ define([
         scope: {
           'group': '=tawResponse'
         },
-        controller: function ($scope, $resource) {
+        controller: function ($scope, Restangular) {
+          $scope.toggleAttending = function (invitee) {
+            var updates = Restangular.one('invitees', invitee._id.$oid)
+            updates.attending = !invitee.attending
+            updates.put().then(function (currentInvitee) {
+              angular.extend(invitee, currentInvitee)
+            })
+          }
         }
       }
     })
