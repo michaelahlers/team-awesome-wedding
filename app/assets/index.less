@@ -47,15 +47,19 @@ html {
             vertical-align: middle;
           }
         }
+
+        .transition(500ms ease-out);
+
+        &.hidden-left {
+          .transition(500ms ease-in);
+          .translate(-100%,0);
+        }
+
+        &.hidden-right {
+          .transition(500ms ease-in);
+          .translate(100%,0);
+        }
       }
-    }
-
-    &.hidden-left {
-      left: -100%;
-    }
-
-    &.hidden-right {
-      left: 100%;
     }
   }
 }
