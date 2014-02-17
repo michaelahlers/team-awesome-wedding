@@ -1,18 +1,16 @@
 <article>
-  <section class="fill" ng-hide="group">
-    <div class="fill-content">
-      <div taw-code on-enter="setGroup(group)"></div>
+  <section>
+    <div class="fill">
+      <div class="fill-content">
+        <div taw-code ng-model="group"></div>
+      </div>
     </div>
   </section>
-  <section class="fill" ng-show="group">
-    <div class="fill-content">
-      <div taw-invitation></div>
+  <section>
+    <div class="fill">
+      <div class="fill-content">
+        <div taw-invitation></div>
+      </div>
     </div>
   </section>
-  <!--<section class="fill">
-    <div class="fill-content" taw-response></div>
-  </section>-->
-  <!--<section class="fill">
-    <div class="fill-content" taw-itinerary></div>
-  </section>-->
 </article>
