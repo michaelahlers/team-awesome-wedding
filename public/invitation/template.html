@@ -1,28 +1,21 @@
-<div class="card card-invitation">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-        <div class="well">
-          <p>Dear {{group.invitees|pick:'givenName'|join:', ':' and '}}, you are cordially invited to celebrate the marriage of:</p>
+<div class="card card-invitation page-curl shadow-bottom">
+  <p>Dear {{group.invitees|pick:'givenName'|join:', ':' and '}}, you are cordially invited to celebrate the marriage of:</p>
 
-          <h1 class="text-center">
-            <div class="name">Heather Nieset</div>
-            <div class="join">&amp;</div>
-            <div class="name">Michael Ahlers</div>
-          </h1>
+  <h1 class="text-center">
+    <div class="name">Heather Nieset</div>
+    <div class="join">&amp;</div>
+    <div class="name">Michael Ahlers</div>
+  </h1>
 
-          <p>Saturday, the fifth of April, two-thousand and fourteen, four o'clock at George Mason Memorial, Washington, District of Columbia.</p>
+  <p>Saturday, the fifth of April, two-thousand and fourteen, four o'clock at George Mason Memorial, Washington, District of Columbia.</p>
 
-          <p>Reception to follow.</p>
+  <p>Reception to follow.</p>
 
-          <p>
-            <button type="button" class="btn btn-primary btn-rsvp btn-lg">
-              <i class="fa fa-envelope"></i> RSVP
-            </button>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <br>
+
+  <p class="text-center">
+    <button type="button" class="btn btn-primary btn-rsvp btn-lg">
+      <i class="fa fa-envelope"></i> RSVP
+    </button>
+  </p>
 </div>
-
