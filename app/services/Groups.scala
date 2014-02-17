@@ -13,6 +13,8 @@ import play.modules.reactivemongo.json.collection.JSONCollection
 import play.api.libs.json.JsObject
 import reactivemongo.core.commands.{Update, FindAndModify}
 import support.mongo.Implicits._
+import play.api.libs.json.Reads._
+import play.api.libs.functional.syntax._
 
 object Groups
   extends Controller
@@ -21,6 +23,8 @@ object Groups
   private val logger = Logger(getClass)
 
   private implicit val objectIdFormat = BSONFormats.BSONObjectIDFormat
+
+  private implicit val documentFormat = BSONFormats.BSONDocumentFormat
 
   protected def collection = db.collection[JSONCollection]("groups0")
 
@@ -66,6 +70,29 @@ object Groups
           .map(_ ++ Json.obj("invitees" -> invitees))
           .map(Ok(_))
           .getOrElse(NotFound)
+      }
+  }
+
+  def updateOneById(id: BSONObjectID) = Action.async(parse.json) {
+    implicit request =>
+      val transforms = {
+        (__ \ 'responded).json.pick.flatMap(v => (__ \ '$set \ 'responded).json.put(v)).orElse(Reads.pure(Json.obj())) and
+          (__ \ '$inc \ '_version).json.put(JsNumber(1))
+      }
+
+      request.body.transform(transforms.reduce) map {
+        updates =>
+          import support.mongo.FindAndModify
+
+          val command = FindAndModify
+            .collection(collection)
+            .id(id)
+            .update(updates, fetchNewObject = true)
+
+          db.command(command).map(_.map(toJson(_)).map(Ok(_)).getOrElse(NotFound))
+      } recoverTotal {
+        error =>
+          Future(BadRequest(JsError.toFlatJson(error)))
       }
   }
 

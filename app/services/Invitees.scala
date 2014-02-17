@@ -15,7 +15,6 @@ import support.mongo.Implicits._
 import play.api.libs.json.Reads._
 import play.api.libs.functional.syntax._
 
-
 object Invitees
   extends Controller
           with MongoController {
