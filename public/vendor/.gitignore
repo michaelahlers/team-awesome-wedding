@@ -1,5 +1,8 @@
 bootstrap/docs
+bootstrap/grunt
+bootstrap/test-infra
 font-awesome/scss
 font-awesome/css
 font-awesome/src
 jquery
+sizzle
