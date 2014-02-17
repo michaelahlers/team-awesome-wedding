@@ -4,10 +4,11 @@ define([
 
   , 'text!./template.html'
 
+  , 'angular-animate'
   , 'restangular'
 ], function ($, angular, template) {
   return angular
-    .module('taw.invitation', [ 'restangular' ])
+    .module('taw.invitation', [ 'ngAnimate', 'restangular' ])
 
     .directive('tawInvitation', function () {
       return {
@@ -16,6 +17,8 @@ define([
         replace: true,
         scope: true,
         link: function (scope, iEl, Attrs, ctrl) {
+        },
+        controller: function ($scope) {
         }
       }
     })
