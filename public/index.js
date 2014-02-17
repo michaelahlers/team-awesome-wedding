@@ -129,7 +129,8 @@ define([
           .when('/', {
             controller: controller,
             template: template,
-            resolve: controller.resolve
+            resolve: controller.resolve,
+            reloadOnSearch: false
           })
           .otherwise({
             redirectTo: '/'
