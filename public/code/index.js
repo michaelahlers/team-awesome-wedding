@@ -16,13 +16,8 @@ define([
         require: 'ngModel',
         template: template,
         replace: true,
-        scope: true,
-        link: function (scope, iEl, iAttrs, ctrl) {
-          scope.$watch('group', function (group) {
-            if (group) {
-              ctrl.$setViewValue(group)
-            }
-          })
+        scope: {
+          'group': '=tawCode'
         },
         controller: function ($scope, $resource) {
           $scope.submit = function () {

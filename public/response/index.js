@@ -4,22 +4,21 @@ define([
 
   , 'text!./template.html'
 
-  , 'angular-animate'
+  , 'angular-resource'
   , 'restangular'
 ], function ($, angular, template) {
   return angular
-    .module('taw.invitation', [ 'ngAnimate', 'restangular' ])
+    .module('taw.response', [ 'ngResource', 'restangular' ])
 
-    .directive('tawInvitation', function () {
+    .directive('tawResponse', function () {
       return {
         restrict: 'A',
-        require: 'ngModel',
         template: template,
         replace: true,
         scope: {
-          'group': '=tawInvitation'
+          'group': '=tawResponse'
         },
-        controller: function ($scope) {
+        controller: function ($scope, $resource) {
         }
       }
     })

@@ -2,14 +2,21 @@
   <section ng-class="{'hidden-left':0<focus}">
     <div class="fill">
       <div class="fill-content">
-        <div taw-code ng-model="current.group"></div>
+        <div taw-code="current.group"></div>
       </div>
     </div>
   </section>
   <section ng-class="{'hidden-left':1<focus,'hidden-right':focus<1}">
     <div class="fill">
       <div class="fill-content">
-        <div taw-invitation ng-model="current.group"></div>
+        <div taw-invitation="current.group"></div>
+      </div>
+    </div>
+  </section>
+  <section ng-class="{'hidden-left':2<focus,'hidden-right':focus<2}">
+    <div class="fill">
+      <div class="fill-content">
+        <div taw-response="current.group"></div>
       </div>
     </div>
   </section>
