@@ -13,20 +13,20 @@ define([
     .directive('tawCode', function () {
       return {
         restrict: 'A',
+        require: 'ngModel',
         template: template,
         replace: true,
-        scope: {
-          'onEnter': '&'
+        scope: true,
+        link: function (scope, iEl, iAttrs, ctrl) {
+
         },
-        controller: function ($scope, $resource) {
+        controller: function ($scope, $resource, $controller) {
           $scope.submit = function () {
             $scope.loading = true
             $resource('/login/:code').get({
               code: $scope.code
             }, function (group) {
-              $scope.onEnter({
-                group: group
-              })
+              $scope.group = group
               $scope.error = null
               $scope.loading = false
             }, function () {
