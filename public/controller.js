@@ -1,12 +1,12 @@
 'use strict'
 
 define(['angular', 'underscore'], function (angular, _) {
-  var controller = function ($rootScope, $scope, $log, group) {
-    $scope.group = group
+  var controller = function ($rootScope, $scope, $log, group, $parse) {
+    $parse('current.group').assign($scope, group)
 
-    $scope.setGroup = function (group) {
-      $scope.group = group
-    }
+    $scope.$watch('current.group._id.$oid', function (id) {
+      $scope.focus = id ? 1 : 0
+    })
   }
 
   controller.resolve = {

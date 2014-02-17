@@ -13,10 +13,14 @@ define([
     .directive('tawInvitation', function () {
       return {
         restrict: 'A',
+        require: 'ngModel',
         template: template,
         replace: true,
         scope: true,
         link: function (scope, iEl, Attrs, ctrl) {
+          ctrl.$render = function () {
+            scope.group = ctrl.$viewValue
+          }
         },
         controller: function ($scope) {
         }
