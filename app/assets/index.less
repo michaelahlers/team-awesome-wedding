@@ -1,11 +1,12 @@
 /* Liberal-use alternative to Trajan. See http://joelcrawfordsmith.com/new/font/trajan for details. */
-@import url('http://fonts.googleapis.com/css?family=Cinzel:400,700');
+@import url('http://fonts.googleapis.com/css?family=Cinzel:400,700|Buenard:400,700');
 @import '../../public/vendor/bootstrap/less/bootstrap';
 @import '../../public/vendor/font-awesome/less/font-awesome';
 
 @fa-font-path: 'vendor/font-awesome/fonts';
 
 @import 'cards';
+@import 'shadows';
 @import 'overrides';
 @import 'variables';
 
@@ -14,6 +15,15 @@ html {
 
   body {
     height: 100%;
+
+    font-family: Buenard, serif;
+    font-size: 14px;
+
+    background: @shostakovich;
+
+    .btn {
+      font-family: 'Cinzel', serif;
+    }
 
     > article {
       height: 100%;
