@@ -8,7 +8,7 @@ case class Invitee(
   _id: Option[BSONObjectID] = None,
   group: Option[JsObject],
   name: Option[String],
-  accepted: Option[Boolean],
+  attending: Option[Boolean],
   flags: Option[JsValue]
 )
 
