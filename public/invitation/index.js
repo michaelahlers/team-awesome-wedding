@@ -10,7 +10,7 @@ define([
   return angular
     .module('taw.invitation', [ 'ngAnimate', 'restangular' ])
 
-    .directive('tawInvitation', function () {
+    .directive('tawInvitation', function ($location, Restangular) {
       return {
         restrict: 'A',
         require: 'ngModel',
@@ -20,6 +20,16 @@ define([
           'group': '=tawInvitation'
         },
         controller: function ($scope) {
+          $scope.respond = function (group) {
+            var updates = Restangular.one('groups', group._id.$oid)
+            updates.responded = true
+            updates.put().then(function (currentGroup) {
+              if (currentGroup.responded) {
+                $location.search('s', 2)
+              }
+              angular.extend(group, currentGroup)
+            })
+          }
         }
       }
     })
