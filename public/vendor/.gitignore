@@ -5,4 +5,5 @@ font-awesome/scss
 font-awesome/css
 font-awesome/src
 jquery
+lesshat/mixins
 sizzle
