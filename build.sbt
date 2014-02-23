@@ -15,6 +15,10 @@ libraryDependencies ++= Seq(
   "org.webjars" % "underscorejs" % "1.5.2-2"
 )
 
-play.Project.playScalaSettings
+play.Project.playScalaSettings ++ lesscSettings
 
 routesImport += "support.Binders._"
+
+lessEntryPoints := Nil
+
+lesscEntryPoints in Compile <<= baseDirectory(_ / "app" / "assets" * "*.less")
