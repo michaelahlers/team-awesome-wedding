@@ -7,7 +7,7 @@
 .card {
 
   > header {
-    background: @dancingOldFolk;
+    background: @radiantOrchid;
     margin-bottom: @grid-gutter-width / 2;
 
     .lh-border-top-right-radius(3px);
@@ -16,7 +16,7 @@
 
   &.card-code,
   &.card-response {
-    header {
+    > header {
       h1 {
         font-family: 'Parisian', serif;
         font-size: 36px;
@@ -47,7 +47,7 @@
     height: @grid-gutter-width * 2;
 
     .lh-background-size(48px 100%);
-    .lh-background-image(linear-gradient(to right, @dancingOldFolk 50%, @anyabase 50%));
+    .lh-background-image(linear-gradient(to right, @radiantOrchid 50%, @anyabase 50%));
 
     .lh-border-bottom-right-radius(3px);
     .lh-border-bottom-left-radius(3px);
@@ -84,6 +84,31 @@
 
   &.card-invitation {
 
+    > header {
+      h1 {
+        text-align: center;
+
+        font-family: 'Parisian', serif;
+        font-size: 42px;
+
+        margin-top: @grid-gutter-width / 3;
+        margin-bottom: @grid-gutter-width / 3;
+
+        .word {
+          color: @anyabase;
+          display: inline;
+          position: relative;
+        }
+
+        .join {
+          display: inline;
+          position: relative;
+          color: @anyabase;
+          font-size: 0.75em;
+        }
+      }
+    }
+
     > .content {
 
       p {
@@ -93,7 +118,7 @@
 
       h1 {
         font-family: 'Parisian', serif;
-        font-size: 56px;
+        font-size: 64px;
 
         margin-top: @grid-gutter-width;
         margin-bottom: @grid-gutter-width;
@@ -108,8 +133,8 @@
           position: relative;
           left: .25em;
           margin: -0.4em 0 -0.5em;
-          //.opacity(.25);
-          color: @dancingOldFolk;
+          .opacity(.5);
+          color: @radiantOrchid;
           font-size: 2em;
         }
       }
