@@ -4,31 +4,31 @@ require({
   map: {
     '*': {
       /* RequireJS plugins. */
-      'async': 'webjars/requirejs-plugins/3ff54566f8/async',
-      'json': 'webjars/requirejs-plugins/3ff54566f8/json',
-      'goog': 'webjars/requirejs-plugins/3ff54566f8/goog',
-      'noext': 'webjars/requirejs-plugins/3ff54566f8/noext',
-      'text': 'webjars/requirejs-text/2.0.10/text'
+      'async': '/webjars/requirejs-plugins/3ff54566f8/async.js',
+      'json': '/webjars/requirejs-plugins/3ff54566f8/json.js',
+      'goog': '/webjars/requirejs-plugins/3ff54566f8/goog.js',
+      'noext': '/webjars/requirejs-plugins/3ff54566f8/noext.js',
+      'text': '/webjars/requirejs-text/2.0.10/text.js'
     }
   },
 
   paths: {
     /* Core AngularJS packages. */
-    'angular': 'webjars/angularjs/1.2.11/angular.min',
-    'angular-animate': 'webjars/angularjs/1.2.11/angular-animate.min',
-    'angular-resource': 'webjars/angularjs/1.2.11/angular-resource.min',
-    'angular-route': 'webjars/angularjs/1.2.11/angular-route.min',
-    'angular-sanitize': 'webjars/angularjs/1.2.11/angular-sanitize.min',
+    'angular': '/webjars/angularjs/1.2.11/angular.min',
+    'angular-animate': '/webjars/angularjs/1.2.11/angular-animate.min',
+    'angular-resource': '/webjars/angularjs/1.2.11/angular-resource.min',
+    'angular-route': '/webjars/angularjs/1.2.11/angular-route.min',
+    'angular-sanitize': '/webjars/angularjs/1.2.11/angular-sanitize.min',
 
     'bootstrap': 'vendor/bootstrap/dist/js/bootstrap.min',
 
-    'jquery': 'webjars/jquery/2.1.0/jquery.min',
+    'jquery': '/webjars/jquery/2.1.0/jquery.min',
 
-    'moment': 'webjars/momentjs/2.5.0/min/moment.min',
+    'moment': '/webjars/momentjs/2.5.0/min/moment.min',
 
-    'restangular': 'webjars/restangular/1.3.1/restangular.min',
+    'restangular': '/webjars/restangular/1.3.1/restangular.min',
 
-    'underscore': 'webjars/underscorejs/1.5.2/underscore-min'
+    'underscore': '/webjars/underscorejs/1.5.2/underscore-min'
   },
 
   shim: {
