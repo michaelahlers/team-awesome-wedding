@@ -1,11 +1,16 @@
 <div class="card card-invitation page-curl shadow-bottom">
   <header class="container-fluid">
     <div class="row">
-      <div class="col-xs-12">Eat drink and be married.</div>
+      <div class="col-xs-12">
+        <h1>
+          <span class="word">Eat</span><span class="join">, </span><span class="word">Drink</span><span class="join">, and </span><span
+            class="word">Be Married!</span>
+        </h1>
+      </div>
     </div>
   </header>
 
-  <div class="container-fluid">
+  <div class="content container-fluid">
     <div class="row">
       <div class="col-xs-12">
         <p>Dear {{group.invitees|pick:'givenName'|join:', ':' and '}}, you are cordially invited to celebrate the marriage of:</p>
