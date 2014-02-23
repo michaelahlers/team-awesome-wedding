@@ -1,23 +1,41 @@
 <div class="card card-response page-curl shadow-bottom">
-  <h1>Response</h1>
+  <header class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="text-center">
+          <div class="name">Heather</div>
+          <div class="join">&amp;</div>
+          <div class="name">Michael</div>
+        </h1>
+      </div>
+    </div>
+  </header>
 
-  <p>Thanks for responding! Please click or tap on each person who'll be attending.</p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Thanks for responding! Please click or tap on each person who'll be attending.</p>
 
-  <br>
+        <br>
 
-  <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
-    <button type="button" class="btn btn-lg" ng-click="toggleAttending(invitee)"
-            ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
-      <i class="fa" ng-class="{'fa-circle-o':!invitee.attending,'fa-check-circle-o':invitee.attending}"></i>
-      <span>{{invitee.givenName}} {{invitee.familyName}}</span>
-    </button>
-  </p>
+        <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
+          <button type="button" class="btn btn-lg" ng-click="toggleAttending(invitee)"
+                  ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
+            <i class="fa" ng-class="{'fa-circle-o':!invitee.attending,'fa-check-circle-o':invitee.attending}"></i>
+            <span>{{invitee.givenName}} {{invitee.familyName}}</span>
+          </button>
+        </p>
 
-  <br>
+        <br>
 
-  <p ng-show="!attendees"><em>Nobody's been checked.</em> If nobody will be attending, no need for further action.</p>
+        <p ng-show="!attendees"><em>Nobody's been checked.</em> If nobody will be attending, no need for further action.</p>
 
-  <p ng-show="attendees"><strong>Great!</strong> We have you down for {{attendees}}.</p>
+        <p ng-show="attendees"><strong>Great!</strong> We have you down for {{attendees}}.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer></footer>
 
   <div class="fader"></div>
 </div>
