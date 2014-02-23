@@ -20,8 +20,9 @@ object Application extends Controller {
     Future(Redirect(routes.Application.index))
   }
 
-  def index = Action.async {
-    Future(Ok(views.html.index()))
+  def index = Authenticated.async {
+    request =>
+      Future(Ok(views.html.index()))
   }
 
   private def mkLoginAction(code: String, result: JsValue => SimpleResult) = Action.async {
