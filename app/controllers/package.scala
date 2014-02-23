@@ -1,11 +1,13 @@
+import play.api.Logger
 import play.api.mvc._
+import reactivemongo.bson.BSONObjectID
 import scala.concurrent.Future
 import services.Groups
 import play.api.libs.concurrent.Execution.Implicits._
 
 package object controllers {
 
-  class AuthenticatedRequest[A](val username: String, request: Request[A]) extends WrappedRequest[A](request)
+  private val logger = Logger(getClass)
 
   object Authenticated extends ActionBuilder[Request] {
     override def invokeBlock[A](request: Request[A], block: (Request[A]) => Future[SimpleResult]) = {
@@ -15,16 +17,18 @@ package object controllers {
             result <- block(request)
           } yield result.withNewSession
 
-        case Some(code) =>
+        case Some(maybeId) =>
           for {
-            groupOption <- Groups.findOneByCode(code)
+            idOption <- Future(BSONObjectID.parse(maybeId).toOption)
+            groupOption <- idOption.map(Groups.findOneById).getOrElse(Future(None))
             result <- block(request)
           } yield {
             groupOption match {
-              case None => result.withNewSession
               case Some(group) => result
+              case None => result.withNewSession
             }
           }
+
       }
     }
   }

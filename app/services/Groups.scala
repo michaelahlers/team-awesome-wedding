@@ -53,7 +53,7 @@ object Groups
       .headOption
   }
 
-  private def findOneById(id: BSONObjectID): Future[Option[JsObject]] = {
+  def findOneById(id: BSONObjectID): Future[Option[JsObject]] = {
     collection
       .find(Json.obj("_id" -> id))
       .cursor[JsObject]
