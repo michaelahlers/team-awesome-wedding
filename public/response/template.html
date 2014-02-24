@@ -11,7 +11,7 @@
     </div>
   </header>
 
-  <div class="container-fluid">
+  <div class="content container-fluid">
     <div class="row">
       <div class="col-xs-12">
         <p>Thanks for responding! Please click or tap on each person who'll be attending.</p>
@@ -19,18 +19,20 @@
         <br>
 
         <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
-          <button type="button" class="btn btn-lg" ng-click="toggleAttending(invitee)"
+          <button type="button" class="btn btn-lg btn-invitee" ng-click="toggleAttending(invitee)"
                   ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
-            <i class="fa" ng-class="{'fa-circle-o':!invitee.attending,'fa-check-circle-o':invitee.attending}"></i>
+            <!--<i class="fa" ng-class="{'fa-circle-o':!invitee.attending,'fa-check-circle-o':invitee.attending}"></i>-->
             <span>{{invitee.givenName}} {{invitee.familyName}}</span>
           </button>
         </p>
 
         <br>
 
-        <p ng-show="!attendees"><em>Nobody's been checked.</em> If nobody will be attending, no need for further action.</p>
+        <p ng-show="!attendees">
+          <strong>Nobody's been checked.</strong> If none of the invitees in this party will be attending, thank you for your response! No further action is needed.
+        </p>
 
-        <p ng-show="attendees"><strong>Great!</strong> We have you down for {{attendees}}.</p>
+        <p ng-show="attendees"><strong>Great!</strong> We have your party down for {{attendees}}.</p>
       </div>
     </div>
   </div>
