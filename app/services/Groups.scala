@@ -48,7 +48,7 @@ object Groups
 
   def findOneByCode(code: String): Future[Option[JsObject]] = {
     collection
-      .find(obj("code" -> code))
+      .find(obj("code" -> code.trim.toLowerCase))
       .cursor[JsObject]
       .headOption
   }
