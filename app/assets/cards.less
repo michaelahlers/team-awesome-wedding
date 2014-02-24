@@ -159,12 +159,13 @@
 
       .btn-invitee {
         font-size: 24px;
-        width: 360px;
+        width: 100%;
       }
 
-      .invitee {
-        font-family: Buenard, serif;
-        //font-size: 18px;
+      @media (min-width: @screen-xs-min) {
+        .btn-invitee {
+          width: 360px;
+        }
       }
     }
   }
