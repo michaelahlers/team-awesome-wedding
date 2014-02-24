@@ -14,7 +14,7 @@
   <div class="content container-fluid">
     <div class="row">
       <div class="col-xs-12">
-        <p>Thanks for responding! Please click or tap on each person who'll be attending.</p>
+        <p>{{resources.responseInstructions}}</p>
 
         <br>
 
@@ -29,7 +29,7 @@
         <br>
 
         <p ng-show="!attendees">
-          <strong>Nobody's been checked.</strong> If none of the invitees in this party will be attending, thank you for your response! No further action is needed.
+          <strong>It looks like nobody's coming.</strong> If none of the invitees in this party will be attending, thank you for your response! No further action is needed.
         </p>
 
         <p ng-show="attendees"><strong>Great!</strong> We have your party down for {{attendees}}.</p>
