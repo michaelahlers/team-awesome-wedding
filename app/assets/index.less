@@ -54,14 +54,20 @@ html {
 
         &.hidden-left {
           .transition(500ms ease-in);
-          .translate(-100%,0);
+          .translate(-100%, 0);
         }
 
         &.hidden-right {
           .transition(500ms ease-in);
-          .translate(100%,0);
+          .translate(100%, 0);
         }
       }
     }
   }
 }
+
+.btn {
+  .animation(pulsate 2s infinite alternate);
+}
+
+.lh-keyframes(~'pulsate, from { text-shadow: 0 0 8px white; } to { }');
