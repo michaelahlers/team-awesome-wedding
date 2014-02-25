@@ -7,8 +7,6 @@ define([
   , 'angular-resource'
   , 'restangular'
 ], function ($, angular, template) {
-  var isTouch = !!('ontouchstart' in window)
-
   return angular
     .module('taw.response', [ 'ngResource', 'restangular' ])
 
@@ -21,7 +19,7 @@ define([
           'group': '=tawResponse'
         },
         controller: function ($scope, $parse, Restangular) {
-          $parse('resources.responseInstructions').assign($scope, isTouch ? "Please touch the name of each person who'll be attending." : "Please click the name of each person who'll be attending.")
+          $scope.isTouch = !!('ontouchstart' in window)
 
           function updateAttendees() {
             $scope.attendees = ($scope.$eval('group.invitees') || [])
