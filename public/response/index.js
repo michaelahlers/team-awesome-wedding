@@ -21,7 +21,7 @@ define([
           'group': '=tawResponse'
         },
         controller: function ($scope, $parse, Restangular) {
-          $parse('resources.responseInstructions').assign($scope, isTouch ? "Touch the name of each person who's planning to attend." : "Click the name of each person who's planning to attend.")
+          $parse('resources.responseInstructions').assign($scope, isTouch ? "Please touch the name of each person who'll be attending." : "Please click the name of each person who'll be attending.")
 
           function updateAttendees() {
             $scope.attendees = ($scope.$eval('group.invitees') || [])
