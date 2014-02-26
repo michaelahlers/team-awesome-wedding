@@ -8,6 +8,7 @@ require({
       'json': '/webjars/requirejs-plugins/3ff54566f8/json.js',
       'goog': '/webjars/requirejs-plugins/3ff54566f8/goog.js',
       'noext': '/webjars/requirejs-plugins/3ff54566f8/noext.js',
+      'propertyParser': '/webjars/requirejs-plugins/3ff54566f8/propertyParser.js',
       'text': '/webjars/requirejs-text/2.0.10/text.js'
     }
   },
