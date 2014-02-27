@@ -14,14 +14,17 @@ define([
   var locations = [
     {
       name: 'Jaleo',
+      address: '2250 Crystal Drive, Arlington, VA 22202',
       latlng: new maps.LatLng(38.8534779, -77.0495547)
     },
     {
       name: 'Crystal City Water Park',
+      address: '1700 Crystal Drive, Arlington, VA 22202',
       latlng: new maps.LatLng(38.8586594, -77.0488019)
     },
     {
       name: 'Residence Inn',
+      address: '2850 Potomac Avenue, Arlington, VA 22202',
       latlng: new maps.LatLng(38.8479483, -77.051194)
     }
   ]
