@@ -21,7 +21,7 @@ define([
     {
       name: 'Crystal City Water Park',
       address: '1750 Crystal Drive, Arlington, VA 22202',
-      latlng: new maps.LatLng(38.8586594, -77.0488019),
+      latlng: new maps.LatLng(38.8588471,-77.0491487),
       URL: 'crystalcity.org/active/open-spaces/crystal-city-water-park'
     },
     {
