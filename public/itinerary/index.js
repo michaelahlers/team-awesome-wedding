@@ -3,9 +3,10 @@ define([
   , 'angular'
 
   , 'text!./template.html'
+  , 'text!./popupTemplate.html'
 
   , 'restangular'
-], function ($, angular, template) {
+], function ($, angular, template, popupTemplate) {
   var maps = window.google.maps
     , geocoder = new maps.Geocoder()
 
@@ -14,19 +15,19 @@ define([
   var locations = [
     {
       name: 'Jaleo',
-      address: '2250 Crystal Drive, Arlington, VA 22202',
+      address: ['2250 Crystal Drive', 'Arlington, VA 22202'],
       latlng: new maps.LatLng(38.8534779, -77.0495547),
       URL: 'http://jaleo.com/crystal-city'
     },
     {
       name: 'Crystal City Water Park',
-      address: '1750 Crystal Drive, Arlington, VA 22202',
-      latlng: new maps.LatLng(38.8588471,-77.0491487),
-      URL: 'crystalcity.org/active/open-spaces/crystal-city-water-park'
+      address: ['1750 Crystal Drive', 'Arlington, VA 22202'],
+      latlng: new maps.LatLng(38.8588471, -77.0491487),
+      URL: 'http://crystalcity.org/active/open-spaces/crystal-city-water-park'
     },
     {
       name: 'Residence Inn',
-      address: '2850 Potomac Avenue, Arlington, VA 22202',
+      address: ['2850 Potomac Avenue', 'Arlington, VA 22202'],
       latlng: new maps.LatLng(38.8479483, -77.051194),
       URL: 'http://marriott.com/hotels/travel/wasry-residence-inn-arlington-capital-view'
     }
@@ -35,7 +36,7 @@ define([
   return angular
     .module('taw.itinerary', [ 'restangular' ])
 
-    .directive('tawItinerary', function ($log) {
+    .directive('tawItinerary', function ($compile, $log) {
 
       return {
         restrict: 'A',
@@ -58,8 +59,11 @@ define([
               map: map
             })
 
+            var popupScope = scope.$new()
+            angular.extend(popupScope, location)
+
             var popup = new maps.InfoWindow()
-            popup.setContent(location.address)
+            popup.setContent($compile(popupTemplate)(popupScope)[0])
             popup.open(map, marker)
           })
 
