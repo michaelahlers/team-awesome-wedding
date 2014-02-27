@@ -1,23 +1,26 @@
 <article>
   <section ng-class="{'hidden-left':0<focus}">
-    <div class="fill">
+    <div class="fill fill-middle">
       <div class="fill-content">
         <div taw-code="current.group"></div>
       </div>
     </div>
   </section>
   <section ng-class="{'hidden-left':1<focus,'hidden-right':focus<1}">
-    <div class="fill">
+    <div class="fill fill-middle">
       <div class="fill-content">
         <div taw-invitation="current.group"></div>
       </div>
     </div>
   </section>
   <section ng-class="{'hidden-left':2<focus,'hidden-right':focus<2}">
-    <div class="fill">
+    <div class="fill fill-middle">
       <div class="fill-content">
         <div taw-response="current.group"></div>
       </div>
     </div>
+  </section>
+  <section ng-class="{'hidden-left':3<focus,'hidden-right':focus<3}">
+    <div taw-itinerary="current.group" class="fill"></div>
   </section>
 </article>
