@@ -1,3 +1,4 @@
+@(googleMapsKey: Option[String])
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="@controllers.routes.Assets.at("index.min.css")">
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=@googleMapsKey.getOrElse("")&sensor=false"></script>
     <script data-main='@routes.Assets.at("index")' type='text/javascript' src='@routes.WebJarAssets.at("requirejs/2.1.11/require.js")'></script>
   </head>
   <body ng-cloak ng-view></body>

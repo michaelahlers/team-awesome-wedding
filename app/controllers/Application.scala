@@ -1,7 +1,7 @@
 package controllers
 
 import play.api.mvc._
-import play.api.Logger
+import play.api.{Play, Logger}
 import scala.concurrent.Future
 import play.api.libs.concurrent.Execution.Implicits._
 import services.{Invitees, Groups}
@@ -9,6 +9,7 @@ import play.api.libs.json.{Json, JsValue}
 import Json._
 import reactivemongo.bson.BSONObjectID
 import play.modules.reactivemongo.json.BSONFormats
+import play.api.Play.current
 
 object Application extends Controller {
 
@@ -22,7 +23,8 @@ object Application extends Controller {
 
   def index = Authenticated.async {
     request =>
-      Future(Ok(views.html.index()))
+      val googleMapsAPIKey = Play.configuration.getString("GOOGLE_MAPS_API_KEY")
+      Future(Ok(views.html.index(googleMapsAPIKey)))
   }
 
   private def mkLoginAction(code: String, result: JsValue => SimpleResult) = Action.async {
