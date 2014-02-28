@@ -69,6 +69,12 @@ define([
 
           map.fitBounds(bounds)
 
+
+          scope.bringIn = function () {
+            iEl.animate({
+              scrollTop: iEl.find('.card-itinerary').offset().top
+            })
+          }
         }
       }
     })
