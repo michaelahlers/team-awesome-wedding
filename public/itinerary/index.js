@@ -47,7 +47,8 @@ define([
           var map = new maps.Map(iEl.find('.map-canvas')[0], {
             disableDefaultUI: true,
             panControl: false,
-            zoomControl: false
+            zoomControl: false,
+            scrollwheel: false
           })
 
           var bounds = new maps.LatLngBounds()
@@ -71,9 +72,7 @@ define([
 
 
           scope.bringIn = function () {
-            iEl.animate({
-              scrollTop: iEl.find('.card-itinerary').offset().top
-            })
+            iEl.parent().scrollTo(iEl.find('.card header'))
           }
         }
       }

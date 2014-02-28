@@ -11,7 +11,6 @@
 }
 
 @import 'cards';
-@import 'itinerary';
 @import 'shadows';
 @import 'overrides';
 @import 'variables';
@@ -78,7 +77,13 @@ html {
 }
 
 .btn {
-  .animation(pulsate 2s infinite alternate);
+  .animation(pulsate 1s infinite alternate);
 }
 
 .lh-keyframes(~'pulsate, from { text-shadow: 0 0 8px white; } to { }');
+
+.taw-itinerary {
+  > .map-canvas {
+    position: fixed !important;
+  }
+}
