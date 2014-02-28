@@ -72,7 +72,11 @@ define([
 
 
           scope.bringIn = function () {
-            iEl.parent().scrollTo(iEl.find('.card header'))
+            iEl.parent().scrollTo(iEl.find('.card header h1'))
+          }
+
+          scope.pushOut = function () {
+            iEl.parent().scrollTo(0)
           }
         }
       }
