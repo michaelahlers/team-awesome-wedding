@@ -45,36 +45,30 @@ define([
         scope: true,
         link: function (scope, iEl, Attrs, ctrl) {
           /*var map = new maps.Map(iEl.find('.map-canvas')[0], {
-            disableDefaultUI: true,
-            panControl: false,
-            zoomControl: true,
-            scrollwheel: false
-          })
+           disableDefaultUI: true,
+           panControl: false,
+           zoomControl: true,
+           scrollwheel: false
+           })
 
-          var bounds = new maps.LatLngBounds()
-          angular.forEach(locations, function (location) {
-            bounds.extend(location.latlng)
+           var bounds = new maps.LatLngBounds()
+           angular.forEach(locations, function (location) {
+           bounds.extend(location.latlng)
 
-            var marker = new maps.Marker({
-              position: location.latlng,
-              map: map
-            })
+           var marker = new maps.Marker({
+           position: location.latlng,
+           map: map
+           })
 
-            var popupScope = scope.$new()
-            angular.extend(popupScope, location)
+           var popupScope = scope.$new()
+           angular.extend(popupScope, location)
 
-            var popup = new maps.InfoWindow()
-            popup.setContent($compile(popupTemplate)(popupScope)[0])
-            popup.open(map, marker)
-          })
+           var popup = new maps.InfoWindow()
+           popup.setContent($compile(popupTemplate)(popupScope)[0])
+           popup.open(map, marker)
+           })
 
-          map.fitBounds(bounds)*/
-
-          scope.bringIn = function () {
-          }
-
-          scope.pushOut = function () {
-          }
+           map.fitBounds(bounds)*/
         }
       }
     })

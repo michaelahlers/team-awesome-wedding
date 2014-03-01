@@ -1,16 +1,23 @@
-<section class="taw-itinerary">
+<section class="taw-itinerary" ng-init="disclosed=false">
   <!--<div class="map-canvas" style="width: 100%; height: 100%"></div>-->
 
-  <div class="card card-itinerary">
+  <div class="card card-itinerary" ng-class="{'hidden-down':!disclosed}">
     <header class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
           <h1 class="text-center">
+            <a ng-href="#/?s=2" class="pull-left">
+              <i class="fa fa-chevron-circle-left"></i>
+            </a>
+
             <div class="name">Itinerary</div>
-            <div class="name pull-right">
-              <i class="fa fa-caret-square-o-down" ng-click="pushOut()"></i>
-              <i class="fa fa-caret-square-o-up" ng-click="bringIn()"></i>
-            </div>
+
+            <a ng-hide="disclosed" ng-click="disclosed=true" ng-href="" class="pull-right">
+              <i class="fa fa-chevron-circle-up"></i>
+            </a>
+            <a ng-show="disclosed" ng-click="disclosed=false" ng-href="" class="pull-right">
+              <i class="fa fa-chevron-circle-down"></i>
+            </a>
           </h1>
         </div>
       </div>
@@ -46,9 +53,7 @@
       </div>
     </div>
 
-    <footer>
-      <div></div>
-    </footer>
+    <footer></footer>
 
     <div class="fader"></div>
   </div>
