@@ -8,7 +8,7 @@ case class Group(
   _id: Option[BSONObjectID] = None,
   responded: Option[Boolean] = None,
   invitees: Seq[JsObject] = Seq.empty,
-  contact: Option[String] = None
+  comments: Option[String] = None
 )
 
 object Group {

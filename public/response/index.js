@@ -1,12 +1,13 @@
 define([
   'jquery'
   , 'angular'
+  , 'underscore'
 
   , 'text!./template.html'
 
   , 'angular-resource'
   , 'restangular'
-], function ($, angular, template) {
+], function ($, angular, _, template) {
   return angular
     .module('taw.response', [ 'ngResource', 'restangular' ])
 
@@ -42,13 +43,16 @@ define([
             })
           }
 
-          $scope.$watch('group.contact', function (contact) {
-            $log.log(contact)
-            var record = Restangular.one('groups', $scope.group._id.$oid)
+          var save = _.debounce(function (field, value) {
+            $scope.$apply(function () {
+              var record = Restangular.one('groups', $scope.group._id.$oid)
+              record[field] = value
+              record.put()
+            })
+          }, 250)
 
-            record.contact = contact
-
-            record.put()
+          $scope.$watch('group.comments', function (comments) {
+            save('comments', comments)
           })
         }
       }
