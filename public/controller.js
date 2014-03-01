@@ -1,6 +1,6 @@
 'use strict'
 
-define(['angular', 'underscore'], function (angular, _) {
+define(['angular', 'jquery', 'underscore'], function (angular, $, _) {
 
   var controller = function ($rootScope, $scope, $log, group, $parse, $location) {
     $parse('current.group').assign($scope, group)
@@ -26,6 +26,7 @@ define(['angular', 'underscore'], function (angular, _) {
 
     $scope.$watch('focus', function (focus) {
       $location.search('s', focus)
+      $('article').scrollTop(0)
     })
 
     $scope.$on('$routeUpdate', function () {
