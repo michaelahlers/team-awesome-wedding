@@ -38,15 +38,26 @@
 
             <br>
 
-            <div ng-show="attendees">
-              <p>Please provide an e-mail address or phone number below in case we need to inform you of any changes on the day of the wedding.</p>
+          </div>
+        </div>
+        <div class="row" ng-show="attendees">
+          <div class="col-xs-12">
+            <p>If you have any questions or comments, feel free to enter them below. Also, please provide a contact number or e-mail address in case there are any changes on the wedding day.</p>
+          </div>
+        </div>
+        <div class="row" ng-show="attendees">
+          <div class="col-xs-12">
+            <form>
+              <div class="form-group">
+                <textarea
+                    class="form-control input-lg"
+                    rows="5"
+                    ng-model="group.contact"
+                    placeholder="Please type your comments and contact information here."></textarea>
 
-              <input
-                  type="text"
-                  class="form-control"
-                  ng-model="group.contact"
-                  placeholder="Please type contact info here.">
-            </div>
+                <p class="help-block text-right"><em>Form is saved as you type; no need to submit.</em></p>
+              </div>
+            </form>
 
             <br>
           </div>
