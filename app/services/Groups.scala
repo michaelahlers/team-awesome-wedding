@@ -77,6 +77,7 @@ object Groups
     implicit request =>
       val transforms = {
         (__ \ 'responded).json.pick.flatMap(v => (__ \ '$set \ 'responded).json.put(v)).orElse(Reads.pure(Json.obj())) and
+          (__ \ 'contact).json.pick.flatMap(v => (__ \ '$set \ 'contact).json.put(v)).orElse(Reads.pure(Json.obj())) and
           (__ \ '$inc \ '_version).json.put(JsNumber(1))
       }
 

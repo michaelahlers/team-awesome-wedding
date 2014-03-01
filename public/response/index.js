@@ -18,7 +18,7 @@ define([
         scope: {
           'group': '=tawResponse'
         },
-        controller: function ($scope, $parse, Restangular) {
+        controller: function ($scope, $parse, Restangular, $log) {
           $scope.isTouch = !!('ontouchstart' in window)
 
           function updateAttendees() {
@@ -41,6 +41,15 @@ define([
               updateAttendees()
             })
           }
+
+          $scope.$watch('group.contact', function (contact) {
+            $log.log(contact)
+            var record = Restangular.one('groups', $scope.group._id.$oid)
+
+            record.contact = contact
+
+            record.put()
+          })
         }
       }
     })

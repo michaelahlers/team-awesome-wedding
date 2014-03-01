@@ -7,7 +7,8 @@ import play.modules.reactivemongo.json.BSONFormats
 case class Group(
   _id: Option[BSONObjectID] = None,
   responded: Option[Boolean] = None,
-  invitees: Seq[JsObject] = Seq.empty
+  invitees: Seq[JsObject] = Seq.empty,
+  contact: Option[String] = None
 )
 
 object Group {

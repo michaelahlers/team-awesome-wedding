@@ -37,6 +37,18 @@
             <p ng-show="attendees"><strong>Thank you!</strong> We have <span class="attendees-count">{{attendees}}</span> down for your party.</p>
 
             <br>
+
+            <div ng-show="attendees">
+              <p>Please provide an e-mail address or phone number below in case we need to inform you of any changes on the day of the wedding.</p>
+
+              <input
+                  type="text"
+                  class="form-control"
+                  ng-model="group.contact"
+                  placeholder="Please type contact info here.">
+            </div>
+
+            <br>
           </div>
         </div>
       </div>
