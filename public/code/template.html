@@ -1,45 +1,49 @@
-<div class="card card-code page-curl shadow-bottom">
-  <header class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1 class="text-center">
-          <div class="name">Heather</div>
-          <div class="join">&amp;</div>
-          <div class="name">Michael</div>
-        </h1>
-      </div>
-    </div>
-  </header>
-
-  <form name="groupForm" role="form" ng-submit="submit()" class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12">
-        <p ng-show="error" class="text-danger">{{error}}</p>
-
-        <div class="form-group" ng-class="{'has-error':!code}">
-          <input
-              type="text"
-              class="form-control"
-              ng-model="code"
-              placeholder="Please type in your code here."
-              ng-disabled="loading">
+<section class="taw-code layout-center">
+  <div class="layout-body">
+    <div class="card card-code page-curl shadow-bottom">
+      <header class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1 class="text-center">
+              <div class="name">Heather</div>
+              <div class="join">&amp;</div>
+              <div class="name">Michael</div>
+            </h1>
+          </div>
         </div>
-      </div>
+      </header>
+
+      <form name="groupForm" role="form" ng-submit="submit()" class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <p ng-show="error" class="text-danger">{{error}}</p>
+
+            <div class="form-group" ng-class="{'has-error':!code}">
+              <input
+                  type="text"
+                  class="form-control"
+                  ng-model="code"
+                  placeholder="Please type in your code here."
+                  ng-disabled="loading">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6"></div>
+          <div class="col-xs-6 text-right">
+            <p>
+              <button type="submit" class="btn btn-lg btn-primary" ng-disabled="!code||loading">
+                <i class="fa" ng-class="{'fa-sign-in':!loading,'fa-spinner fa-spin':loading}"></i> Enter
+              </button>
+            </p>
+          </div>
+        </div>
+      </form>
+
+      <footer></footer>
+
+      <div class="fader"></div>
     </div>
-    <div class="row">
-      <div class="col-xs-6"></div>
-      <div class="col-xs-6 text-right">
-        <p>
-          <button type="submit" class="btn btn-lg btn-primary" ng-disabled="!code||loading">
-            <i class="fa" ng-class="{'fa-sign-in':!loading,'fa-spinner fa-spin':loading}"></i> Enter
-          </button>
-        </p>
-      </div>
-    </div>
-  </form>
+  </div>
 
-  <footer></footer>
-
-  <div class="fader"></div>
-</div>
-
+</section>

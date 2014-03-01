@@ -1,44 +1,50 @@
-<div class="card card-invitation page-curl shadow-bottom">
-  <header class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1>
-          <span class="word">Eat</span><span class="join">, </span><span class="word">Drink</span><span class="join">, and </span><span
-            class="word">Be Married!</span>
-        </h1>
-      </div>
-    </div>
-  </header>
+<section class="taw-code layout-center">
+  <div class="layout-body">
+    <div class="card card-invitation page-curl shadow-bottom">
+      <header class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1>
+              <span class="word">Eat</span><span class="join">, </span><span class="word">Drink</span><span class="join">, and </span><span
+                class="word">Be Married!</span>
+            </h1>
+          </div>
+        </div>
+      </header>
 
-  <div class="content container-fluid">
-    <div class="row">
-      <div class="col-xs-12">
-        <p>Dear {{group.invitees|pick:'givenName'|join:', ':' and '}}, you're invited to celebrate the marriage of:</p>
+      <div class="content container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <p>Dear {{group.invitees|pick:'givenName'|join:', ':' and '}}, you're invited to celebrate the marriage of:</p>
 
-        <h1 class="text-center">
-          <div class="name">Heather Nieset</div>
-          <div class="join">&amp;</div>
-          <div class="name">Michael Ahlers</div>
-        </h1>
+            <h1 class="text-center">
+              <div class="name">Heather Nieset</div>
+              <div class="join">&amp;</div>
+              <div class="name">Michael Ahlers</div>
+            </h1>
 
-        <p class="text-center">Saturday, April 5, 2014, 5:00 pm.</p>
+            <p class="text-center">Saturday, April 5, 2014, 5:00 pm.</p>
 
-        <p class="text-center">Crystal City Water Park, Arlington, VA.</p>
+            <p class="text-center">Crystal City Water Park, Arlington, VA.</p>
 
-        <p class="text-center"><small><em>Please respond by March 14, 2014.</em></small></p>
+            <p class="text-center">
+              <small><em>Please respond by March 14, 2014.</em></small>
+            </p>
 
-        <br>
+            <br>
 
-        <div class="text-center">
-          <button type="button" class="btn btn-primary btn-rsvp btn-lg" ng-click="respond(group)">
-            <i class="fa fa-envelope"></i> {{resources.respondButton}}
-          </button>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary btn-rsvp btn-lg" ng-click="respond(group)">
+                <i class="fa fa-envelope"></i> {{resources.respondButton}}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
+      <footer></footer>
+
+      <div class="fader"></div>
     </div>
   </div>
-
-  <footer></footer>
-
-  <div class="fader"></div>
-</div>
+</section>

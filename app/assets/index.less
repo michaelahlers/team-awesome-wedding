@@ -11,8 +11,9 @@
 }
 
 @import 'cards';
-@import 'shadows';
+@import 'layouts';
 @import 'overrides';
+@import 'shadows';
 @import 'variables';
 
 html {
@@ -21,7 +22,7 @@ html {
   body {
     width: 100%;
     height: 100%;
-
+    overflow: hidden;
     background: @shostakovich;
 
     .btn {
@@ -32,33 +33,14 @@ html {
       position: relative;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
 
       > section {
         position: absolute;
         left: 0;
         width: 100%;
         height: 100%;
-        overflow-y: auto;
-
-        > .fill {
-          width: 100%;
-          height: 100%;
-
-          > .fill-content {
-            width: 100%;
-            height: 100%;
-          }
-
-          &.fill-middle {
-            display: table;
-
-            > .fill-content {
-              display: table-cell;
-              vertical-align: middle;
-            }
-          }
-        }
 
         .transition(500ms ease-out);
 
