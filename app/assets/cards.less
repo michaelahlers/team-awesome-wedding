@@ -192,7 +192,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    margin: 0;
+    margin: @grid-gutter-width 0 0 0;
     z-index: 1;
 
     @media (min-width: (@screen-xs-min + @grid-gutter-width * 2)) {
@@ -229,9 +229,9 @@
     .transition(500ms ease-out);
 
     &.hidden-down {
-      .transition(500ms ease-in);
+      .transition(500ms ease-out);
       .translate(0, 100%);
-      margin-bottom: 59px;
+      margin-bottom: 35px;
     }
   }
 }
