@@ -44,10 +44,10 @@ define([
         replace: true,
         scope: true,
         link: function (scope, iEl, Attrs, ctrl) {
-          var map = new maps.Map(iEl.find('.map-canvas')[0], {
+          /*var map = new maps.Map(iEl.find('.map-canvas')[0], {
             disableDefaultUI: true,
             panControl: false,
-            zoomControl: false,
+            zoomControl: true,
             scrollwheel: false
           })
 
@@ -68,15 +68,12 @@ define([
             popup.open(map, marker)
           })
 
-          map.fitBounds(bounds)
-
+          map.fitBounds(bounds)*/
 
           scope.bringIn = function () {
-            iEl.parent().scrollTo(iEl.find('.card header h1'))
           }
 
           scope.pushOut = function () {
-            iEl.parent().scrollTo(0)
           }
         }
       }
