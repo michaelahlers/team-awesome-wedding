@@ -15,8 +15,6 @@ define(['angular', 'jquery', 'underscore'], function (angular, $, _) {
         return
       }
 
-      $log.log(group.responded)
-
       if (group.responded) {
         $scope.focus = 2
         return
