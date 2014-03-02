@@ -38,7 +38,8 @@ object Invitees
       "$set" -> obj(
         "familyName" -> record \ "familyName",
         "givenName" -> record \ "givenName",
-        "group" -> record \ "group"
+        "group" -> record \ "group",
+        "flags" -> record \ "flags"
       ),
       "$inc" -> obj("_version" -> 1)
     )

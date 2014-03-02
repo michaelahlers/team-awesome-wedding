@@ -58,7 +58,8 @@ object Snapshots
         "givenName" -> definition \ "givenName",
         "group" -> obj(
           "_id" -> group \ "_id"
-        )
+        ),
+        "flags" -> definition \ "flags"
       ))
     } yield invitee
   }
