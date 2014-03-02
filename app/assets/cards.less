@@ -196,6 +196,8 @@
 
   &.card-itinerary {
 
+    .box-shadow(0px 10px 50px 0px rgba(0, 0, 0, 0.75));
+
     position: absolute;
     top: 0;
     bottom: 0;
@@ -204,6 +206,7 @@
 
     @media (min-width: (@screen-xs-min + @grid-gutter-width * 2)) {
       margin: @grid-gutter-width;
+      margin-left: @grid-gutter-width *2;
     }
 
     p {
