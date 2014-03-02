@@ -6,6 +6,7 @@ import play.modules.reactivemongo.json.BSONFormats
 
 case class Invitee(
   _id: Option[BSONObjectID] = None,
+  _order: Option[Int] = None,
   group: Option[JsObject],
   name: Option[String],
   attending: Option[Boolean],

@@ -132,6 +132,15 @@ define([
         }
       })
 
+      .directive('pBrand', function () {
+        return {
+          restrict: 'A',
+          link: function (scope, iEl) {
+            iEl.appendTo(document.body)
+          }
+        }
+      })
+
       .filter('pick', function ($parse) {
         return function (source, field) {
           var getter = $parse(field)

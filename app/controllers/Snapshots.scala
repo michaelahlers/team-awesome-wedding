@@ -54,6 +54,7 @@ object Snapshots
     for {
       group <- groups((definition \ "group" \ "_ref").as[Int])
       invitee <- services.Invitees.upsertByName(obj(
+        "_order" -> definition \ "_order",
         "familyName" -> definition \ "familyName",
         "givenName" -> definition \ "givenName",
         "group" -> obj(

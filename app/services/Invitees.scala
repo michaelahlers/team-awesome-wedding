@@ -36,6 +36,7 @@ object Invitees
 
     val updates = obj(
       "$set" -> obj(
+        "_order" -> record \ "_order",
         "familyName" -> record \ "familyName",
         "givenName" -> record \ "givenName",
         "group" -> record \ "group",
@@ -59,8 +60,13 @@ object Invitees
       "group._id" -> groupId
     )
 
+    val sort = obj(
+      "_order" -> true
+    )
+
     collection
       .find(query)
+      .sort(sort)
       .cursor[JsObject]
       .collect[Seq]()
   }
