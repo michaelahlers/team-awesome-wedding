@@ -16,33 +16,37 @@
       <div class="content container-fluid">
         <div class="row">
           <div class="col-xs-12">
-            <p>
+            <p ng-hide="attendees">
               Please <span ng-show="isTouch">tap</span> <span ng-show="!isTouch">click on</span> the name of each person who will attend.
             </p>
 
-            <br>
+            <p ng-show="attendees">
+              <strong>Thank you!</strong> We have <span class="attendees-count">{{attendees}}</span> down for your party.
+            </p>
 
             <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
               <button type="button" class="btn btn-lg btn-invitee" ng-click="toggleAttending(invitee)"
                       ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
-                <!--<i class="fa" ng-class="{'fa-circle-o':!invitee.attending,'fa-check-circle-o':invitee.attending}"></i>-->
                 <span>{{invitee.givenName}} {{invitee.familyName}}</span>
               </button>
             </p>
+          </div>
+        </div>
+      </div>
 
-            <br>
-
-            <p ng-show="!attendees" class="help-block text-center"><em>If nobody is attending, no further response is needed.</em></p>
-
-            <p ng-show="attendees"><strong>Thank you!</strong> We have <span class="attendees-count">{{attendees}}</span> down for your party.</p>
-
-            <br>
-
+      <div class="content container-fluid">
+        <div class="row" ng-hide="attendees">
+          <div class="col-xs-12">
+            <p class="help-block">
+              <em>If nobody is attending, no further response is needed.</em>
+            </p>
           </div>
         </div>
         <div class="row" ng-show="attendees">
           <div class="col-xs-12">
-            <p><strong>If you have any questions or comments</strong>, feel free to enter them in the form below. Also, please provide a contact number or e-mail address in case there are any changes on the wedding day.</p>
+            <p>
+              <strong>If you have any questions or comments</strong>, feel free to enter them in the form below. Also, please provide a contact number or e-mail address in case there are any changes on the wedding day.
+            </p>
           </div>
         </div>
         <div class="row" ng-show="attendees">
@@ -55,16 +59,13 @@
                     ng-model="group.comments"
                     placeholder="Please type your comments and contact information here."></textarea>
 
-                <p class="help-block text-right"><em>Form is saved as you type; no need to submit.</em></p>
+                <p class="help-block text-right">
+                  <em>Form is saved as you type; no need to submit.</em>
+                </p>
               </div>
             </form>
-
-            <br>
           </div>
         </div>
-      </div>
-
-      <div class="content container-fluid">
         <div class="row">
           <div class="col-xs-6 text-left">
             <a class="btn btn-lg btn-default" ng-href="#/?s=1">
