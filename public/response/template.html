@@ -24,7 +24,12 @@
               <p ng-show="attendees">
                 <strong>Thank you!</strong> We have <span class="attendees-count">{{attendees}}</span> down for your party.
               </p>
-
+            </div>
+          </div>
+        </div>
+        <div class="content attendees container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
               <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
                 <button type="button" class="btn btn-lg btn-invitee" ng-click="toggleAttending(invitee)"
                         ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
