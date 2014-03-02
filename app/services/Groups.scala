@@ -73,6 +73,17 @@ object Groups
       }
   }
 
+  def findAndModifyById(id: BSONObjectID, updates: JsValue): Future[Option[JsObject]] = {
+    import support.mongo.FindAndModify
+
+    val command = FindAndModify
+      .collection(collection)
+      .id(id)
+      .update(updates, fetchNewObject = true)
+
+    db.command(command).map(_.map(toJson(_).as[JsObject]))
+  }
+
   def updateOneById(id: BSONObjectID) = Action.async(parse.json) {
     implicit request =>
       val transforms = {
@@ -83,14 +94,15 @@ object Groups
 
       request.body.transform(transforms.reduce) map {
         updates =>
-          import support.mongo.FindAndModify
-
-          val command = FindAndModify
-            .collection(collection)
-            .id(id)
-            .update(updates, fetchNewObject = true)
-
-          db.command(command).map(_.map(toJson(_)).map(Ok(_)).getOrElse(NotFound))
+          for {
+            group <- findAndModifyById(id, updates)
+            invitees <- Invitees.findByGroupId(id)
+          } yield {
+            group
+              .map(_ ++ Json.obj("invitees" -> invitees))
+              .map(Ok(_))
+              .getOrElse(NotFound)
+          }
       } recoverTotal {
         error =>
           Future(BadRequest(JsError.toFlatJson(error)))
