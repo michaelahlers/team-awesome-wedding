@@ -11,6 +11,8 @@ PUT         /services/groups/:id          services.Groups.updateOneById(id:BSONO
 
 PUT         /services/invitees/:id        services.Invitees.updateOneById(id:BSONObjectID)
 
+POST        /services/statistics          services.Statistics.createOne
+
 GET         /webjars/*file                controllers.WebJarAssets.at(file)
 
 GET         /6/*file                      controllers.Assets.at(path="/public", file)

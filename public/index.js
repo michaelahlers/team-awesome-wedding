@@ -132,10 +132,30 @@ define([
         }
       })
 
-      .directive('pBrand', function () {
+      .directive('pBrand', function (Restangular) {
         return {
           restrict: 'A',
           link: function (scope, iEl) {
+            iEl.mouseover(function () {
+              scope.$apply(function () {
+                Restangular
+                  .all('statistics')
+                  .post({
+                    action: 'interact.pattern.mouseover'
+                  })
+              })
+            })
+
+            iEl.click(function () {
+              scope.$apply(function () {
+                Restangular
+                  .all('statistics')
+                  .post({
+                    action: 'interact.pattern.click'
+                  })
+              })
+            })
+
             iEl.appendTo(document.body)
           }
         }
