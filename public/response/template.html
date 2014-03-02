@@ -1,88 +1,90 @@
-<section class="taw-response layout-center">
-  <div class="layout-body">
-    <div class="card card-response page-curl shadow-bottom">
-      <header class="container-fluid">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1 class="text-center">
-              <div class="name">Heather</div>
-              <div class="join">&amp;</div>
-              <div class="name">Michael</div>
-            </h1>
+<section class="taw-response">
+  <div class="layout-center">
+    <div class="layout-body">
+      <div class="card card-response page-curl shadow-bottom">
+        <header class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+              <h1 class="text-center">
+                <div class="name">Heather</div>
+                <div class="join">&amp;</div>
+                <div class="name">Michael</div>
+              </h1>
+            </div>
+          </div>
+        </header>
+
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
+              <p ng-hide="attendees">
+                Please <span ng-show="isTouch">tap</span> <span ng-show="!isTouch">click on</span> the name of each person who will attend.
+              </p>
+
+              <p ng-show="attendees">
+                <strong>Thank you!</strong> We have <span class="attendees-count">{{attendees}}</span> down for your party.
+              </p>
+
+              <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
+                <button type="button" class="btn btn-lg btn-invitee" ng-click="toggleAttending(invitee)"
+                        ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
+                  <span>{{invitee.givenName}} {{invitee.familyName}}</span>
+                </button>
+              </p>
+            </div>
           </div>
         </div>
-      </header>
 
-      <div class="content container-fluid">
-        <div class="row">
-          <div class="col-xs-12">
-            <p ng-hide="attendees">
-              Please <span ng-show="isTouch">tap</span> <span ng-show="!isTouch">click on</span> the name of each person who will attend.
-            </p>
+        <div class="content container-fluid">
+          <div class="row" ng-hide="attendees">
+            <div class="col-xs-12">
+              <p class="help-block">
+                <em>If nobody is attending, no further response is needed.</em>
+              </p>
+            </div>
+          </div>
+          <div class="row" ng-show="attendees">
+            <div class="col-xs-12">
+              <p>
+                <strong>If you have any questions or comments</strong>, feel free to enter them in the form below. Also, please provide a contact number or e-mail address in case there are any changes on the wedding day.
+              </p>
+            </div>
+          </div>
+          <div class="row" ng-show="attendees">
+            <div class="col-xs-12">
+              <form>
+                <div class="form-group">
+                  <textarea
+                      class="form-control input-lg"
+                      rows="5"
+                      ng-model="group.comments"
+                      placeholder="Please type your comments and contact information here."></textarea>
 
-            <p ng-show="attendees">
-              <strong>Thank you!</strong> We have <span class="attendees-count">{{attendees}}</span> down for your party.
-            </p>
-
-            <p class="text-center" ng-repeat="invitee in group.invitees track by invitee._id.$oid">
-              <button type="button" class="btn btn-lg btn-invitee" ng-click="toggleAttending(invitee)"
-                      ng-class="{'btn-default':!invitee.attending,'btn-primary':invitee.attending}">
-                <span>{{invitee.givenName}} {{invitee.familyName}}</span>
-              </button>
-            </p>
+                  <p class="help-block text-right">
+                    <em>Form is saved as you type; no need to submit.</em>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 text-left">
+              <a class="btn btn-lg btn-default" ng-href="#/?s=1">
+                <i class="fa fa-arrow-left"></i> Invitation
+              </a>
+            </div>
+            <div class="col-xs-6 text-right">
+              <a ng-show="attendees" class="btn btn-lg btn-primary" ng-href="#/?s=3">
+                Details <i class="fa fa-arrow-right"></i>
+              </a>
+            </div>
           </div>
         </div>
+
+        <footer></footer>
+
+        <div class="fader"></div>
       </div>
-
-      <div class="content container-fluid">
-        <div class="row" ng-hide="attendees">
-          <div class="col-xs-12">
-            <p class="help-block">
-              <em>If nobody is attending, no further response is needed.</em>
-            </p>
-          </div>
-        </div>
-        <div class="row" ng-show="attendees">
-          <div class="col-xs-12">
-            <p>
-              <strong>If you have any questions or comments</strong>, feel free to enter them in the form below. Also, please provide a contact number or e-mail address in case there are any changes on the wedding day.
-            </p>
-          </div>
-        </div>
-        <div class="row" ng-show="attendees">
-          <div class="col-xs-12">
-            <form>
-              <div class="form-group">
-                <textarea
-                    class="form-control input-lg"
-                    rows="5"
-                    ng-model="group.comments"
-                    placeholder="Please type your comments and contact information here."></textarea>
-
-                <p class="help-block text-right">
-                  <em>Form is saved as you type; no need to submit.</em>
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6 text-left">
-            <a class="btn btn-lg btn-default" ng-href="#/?s=1">
-              <i class="fa fa-arrow-left"></i> Invitation
-            </a>
-          </div>
-          <div class="col-xs-6 text-right">
-            <a ng-show="attendees" class="btn btn-lg btn-primary" ng-href="#/?s=3">
-              Details <i class="fa fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <footer></footer>
-
-      <div class="fader"></div>
     </div>
   </div>
 </section>
