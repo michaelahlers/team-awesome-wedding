@@ -45,7 +45,11 @@ define([
 
           var save = _.debounce(function (field, value) {
             $scope.$apply(function () {
-              var record = Restangular.one('groups', $scope.group._id.$oid)
+              var id = $scope.$eval('group._id.$oid')
+              if (!id) {
+                return
+              }
+              var record = Restangular.one('groups', id)
               record[field] = value
               record.put()
             })
