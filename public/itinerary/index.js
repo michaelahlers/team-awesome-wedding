@@ -36,6 +36,8 @@ define([
     ov.setMap(this)
   }
 
+  var directionsService = new maps.DirectionsService()
+
   var locations = [
     {
       name: 'Jaleo',
@@ -90,7 +92,6 @@ define([
             }
           }
 
-
           scope.locations = {
             jaleo: locations[0],
             waterPark: locations[1],
@@ -103,6 +104,21 @@ define([
             zoomControl: true,
             scrollwheel: true
           })
+
+          var directionsDisplay = new maps.DirectionsRenderer({suppressMarkers: true})
+          directionsDisplay.setMap(map)
+
+          directionsService.route({
+            origin: locations[2].latlng,
+            destination: locations[1].latlng,
+            waypoints: [
+              {location: locations[0].latlng}
+            ],
+            travelMode: maps.TravelMode.WALKING
+          }, function (response, status) {
+            directionsDisplay.setDirections(response)
+          })
+
 
           var bounds = new maps.LatLngBounds()
           angular.forEach(locations, function (location) {
@@ -159,6 +175,7 @@ define([
               map.fitBounds(bounds)
             }
           })
+
         },
 
         controller: function ($scope) {
