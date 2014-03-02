@@ -22,8 +22,8 @@ define([
         controller: function ($scope, $parse, Restangular, $log) {
           $scope.isTouch = !!('ontouchstart' in window)
 
-          function updateAttendees() {
-            $scope.attendees = ($scope.$eval('group.invitees') || [])
+          function updateAttendees(invitees) {
+            $scope.attendees = (invitees || [])
               .filter(function (invitee) {
                 return invitee.attending
               })
@@ -32,14 +32,13 @@ define([
               }, 0)
           }
 
-          updateAttendees()
+          $scope.$watch('group.invitees', updateAttendees, true)
 
           $scope.toggleAttending = function (invitee) {
             var updates = Restangular.one('invitees', invitee._id.$oid)
             updates.attending = !invitee.attending
             updates.put().then(function (currentInvitee) {
               angular.extend(invitee, currentInvitee)
-              updateAttendees()
             })
           }
 
