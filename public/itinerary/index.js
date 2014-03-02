@@ -26,19 +26,22 @@ define([
       name: 'Jaleo',
       address: ['2250 Crystal Drive', 'Arlington, VA 22202'],
       latlng: new maps.LatLng(38.8534779, -77.0495547),
-      URL: 'http://jaleo.com/crystal-city'
+      URL: 'http://jaleo.com/crystal-city',
+      imageURL: '/images/jaleo/79370E11-1D09-08FB-3BA22343AE93409B.jpg'
     },
     {
       name: 'Crystal City Water Park',
       address: ['1750 Crystal Drive', 'Arlington, VA 22202'],
       latlng: new maps.LatLng(38.8588471, -77.0491487),
-      URL: 'http://crystalcity.org/active/open-spaces/crystal-city-water-park'
+      URL: 'http://crystalcity.org/active/open-spaces/crystal-city-water-park',
+      imageURL: '/images/crystal-city-water-park/water-park-tbdstaff-1015_606.jpg'
     },
     {
       name: 'Residence Inn',
       address: ['2850 Potomac Avenue', 'Arlington, VA 22202'],
       latlng: new maps.LatLng(38.8479483, -77.051194),
-      URL: 'http://marriott.com/hotels/travel/wasry-residence-inn-arlington-capital-view'
+      URL: 'http://marriott.com/hotels/travel/wasry-residence-inn-arlington-capital-view',
+      imageURL: '/images/residence-inn/wasry_phototour09.jpg'
     }
   ]
 
@@ -59,7 +62,7 @@ define([
             disableDefaultUI: true,
             panControl: false,
             zoomControl: true,
-            scrollwheel: false
+            scrollwheel: true
           })
 
           var bounds = new maps.LatLngBounds()
@@ -71,15 +74,35 @@ define([
               map: map
             })
 
-            var popupScope = scope.$new()
-            angular.extend(popupScope, location)
+            var popupScope = angular.extend(scope.$new(), location)
+            var popup = new maps.InfoWindow({
+              content: $compile(popupTemplate)(popupScope)[0]
+            })
 
-            var popup = new maps.InfoWindow()
-            popup.setContent($compile(popupTemplate)(popupScope)[0])
-            popup.open(map, marker)
+            maps.event.addListener(marker, 'click', function () {
+              scope.$apply(function () {
+                scope.focusedLocation = location
+              })
+            })
+
+            angular.extend(location, {
+              marker: marker,
+              popup: popup
+            })
+
           })
 
           map.fitBounds(bounds)
+
+          scope.$watch('focusedLocation', function (location, previousLocation) {
+            if (previousLocation) {
+              previousLocation.popup.close()
+            }
+
+            if (location) {
+              location.popup.open(map, location.marker)
+            }
+          })
         },
 
         controller: function ($scope) {

@@ -1,8 +1,9 @@
 <div class="taw-itinerary-popup">
   <p>
-    <a ng-href="{{URL}}" target="_blank">{{name}} &nbsp;<i class="fa fa-external-link"></i></a>
+    <strong><a ng-href="{{URL}}" target="_blank">{{name}} &nbsp;<i class="fa fa-external-link"></i></a></strong>
   </p>
-  <!--<address>
+  <address>
     <div ng-repeat="line in address">{{line}}</div>
-  </address>-->
+  </address>
+  <p style="width: 200px;" taw-itinerary-image="{{imageURL}}" taw-immediate="true"></p>
 </div>
