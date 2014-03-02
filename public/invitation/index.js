@@ -15,7 +15,6 @@ define([
     .directive('tawInvitation', function ($parse, $location, Restangular) {
       return {
         restrict: 'A',
-        require: 'ngModel',
         template: template,
         replace: true,
         scope: {

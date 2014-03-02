@@ -13,11 +13,17 @@ define([
     .directive('tawCode', function () {
       return {
         restrict: 'A',
-        require: 'ngModel',
         template: template,
         replace: true,
         scope: {
           'group': '=tawCode'
+        },
+        link: function (scope, iEl) {
+          scope.$watch('group', function (group) {
+            if (group) {
+              iEl.find('input').blur()
+            }
+          })
         },
         controller: function ($scope, $resource) {
           $scope.submit = function () {
