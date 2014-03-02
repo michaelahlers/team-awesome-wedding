@@ -122,6 +122,16 @@ define([
         'taw.itinerary'
       ])
 
+      .directive('tawImage', function () {
+        return {
+          restrict: 'A',
+          link: function (scope, iEl, iAttrs) {
+            var resolvedURI = require.toUrl('.' + iAttrs.tawImage)
+            iEl.attr('src', resolvedURI)
+          }
+        }
+      })
+
       .filter('pick', function ($parse) {
         return function (source, field) {
           var getter = $parse(field)

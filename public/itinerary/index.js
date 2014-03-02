@@ -199,15 +199,12 @@ define([
           '  <button type="button" class="btn btn-primary" ng-click="showImage=true" ng-hide="showImage">' +
           '    <i class="fa fa-camera"></i> Show Picture' +
           '  </button>' +
-          '  <img ng-if="showImage" class="img-rounded img-responsive" ng-src="{{resolvedImageURI}}">' +
+          '  <img ng-if="showImage" class="img-rounded img-responsive" taw-image="{{imageURI}}">' +
           '</div>',
         replace: false,
         scope: {
           imageURI: '@tawItineraryImage',
           showImage: '@tawImmediate'
-        },
-        controller: function ($scope) {
-          $scope.resolvedImageURI = require.toUrl('.' + $scope.imageURI)
         }
       }
     })
