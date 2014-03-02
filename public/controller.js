@@ -3,8 +3,6 @@
 define(['angular', 'jquery', 'underscore'], function (angular, $, _) {
 
   var controller = function ($rootScope, $scope, $log, group, $parse, $location) {
-    $parse('current.group').assign($scope, group)
-
     $scope.$watch('current.group', function (group) {
       if (!group) {
         $scope.focus = 0
@@ -17,12 +15,17 @@ define(['angular', 'jquery', 'underscore'], function (angular, $, _) {
         return
       }
 
+      $log.log(group.responded)
+
       if (group.responded) {
         $scope.focus = 2
+        return
       }
 
       $scope.focus = 1
     }, true)
+
+    $parse('current.group').assign($scope, group)
 
     $scope.$watch('focus', function (focus) {
       $location.search('s', focus)
