@@ -222,7 +222,7 @@
       width: 100%;
       position: absolute;
       top: 59px;
-      bottom: 60px;
+      bottom: @grid-gutter-width / 2;
       overflow-y: auto;
     }
 
@@ -231,6 +231,7 @@
       bottom: 0;
       z-index: 1;
       width: 100%;
+      height: @grid-gutter-width / 2;
     }
 
     .transition(500ms ease-out);
