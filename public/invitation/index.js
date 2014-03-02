@@ -7,8 +7,6 @@ define([
   , 'angular-animate'
   , 'restangular'
 ], function ($, angular, template) {
-  var isTouch = !!('ontouchstart' in window)
-
   return angular
     .module('taw.invitation', [ 'ngAnimate', 'restangular' ])
 
@@ -20,9 +18,10 @@ define([
         scope: {
           'group': '=tawInvitation'
         },
+        link: function (scope, iEl) {
+          scope.isTouch = !!('ontouchstart' in window)
+        },
         controller: function ($scope) {
-          $parse('resources.respondButton').assign($scope, isTouch ? 'Touch to Respond' : 'Click to Respond')
-
           $scope.respond = function (group) {
             var updates = Restangular.one('groups', group._id.$oid)
             updates.responded = true

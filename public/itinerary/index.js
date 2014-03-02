@@ -7,6 +7,15 @@ define([
 
   , 'restangular'
 ], function ($, angular, template, popupTemplate) {
+
+  function toArray(value) {
+    if (angular.isArray(value)) {
+      return value
+    }
+
+    return []
+  }
+
   var maps = window.google.maps
     , geocoder = new maps.Geocoder()
 
@@ -42,7 +51,9 @@ define([
         restrict: 'A',
         template: template,
         replace: true,
-        scope: true,
+        scope: {
+          'group': '=tawItinerary'
+        },
         link: function (scope, iEl, Attrs, ctrl) {
           var map = new maps.Map(iEl.find('.map-canvas')[0], {
             disableDefaultUI: true,
@@ -69,6 +80,17 @@ define([
           })
 
           map.fitBounds(bounds)
+        },
+
+        controller: function ($scope) {
+          $scope.$watch('group.invitees', function (invitees) {
+            invitees = toArray(invitees)
+
+            $scope.preludePartyInvitees = invitees.filter(function (invitee) {
+              return (invitee.flags || {}).preludeParty
+            })
+
+          })
         }
       }
     })
