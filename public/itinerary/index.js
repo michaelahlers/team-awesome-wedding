@@ -21,6 +21,21 @@ define([
 
   maps.visualRefresh = true
 
+  maps.Map.prototype.panToWithOffset = function (latlng, offsetX, offsetY) {
+    var map = this
+    var ov = new maps.OverlayView()
+    ov.onAdd = function () {
+      var proj = this.getProjection()
+      var aPoint = proj.fromLatLngToContainerPixel(latlng)
+      aPoint.x = aPoint.x + offsetX
+      aPoint.y = aPoint.y + offsetY
+      map.panTo(proj.fromContainerPixelToLatLng(aPoint))
+    }
+    ov.draw = function () {
+    }
+    ov.setMap(this)
+  }
+
   var locations = [
     {
       name: 'Jaleo',
@@ -58,6 +73,30 @@ define([
           'group': '=tawItinerary'
         },
         link: function (scope, iEl, Attrs, ctrl) {
+          function getOffsets() {
+            var offsetX
+
+            /* If the card is shown, cause the map to center in the available area to the right. */
+            if (scope.disclosed) {
+              var cardWidth = iEl.find('.card').width()
+              offsetX = -cardWidth / 2
+            } else {
+              offsetX = 0
+            }
+
+            return {
+              x: offsetX,
+              y: 0
+            }
+          }
+
+
+          scope.locations = {
+            jaleo: locations[0],
+            waterPark: locations[1],
+            residenceInn: location[2]
+          }
+
           var map = new maps.Map(iEl.find('.map-canvas')[0], {
             disableDefaultUI: true,
             panControl: false,
@@ -85,6 +124,13 @@ define([
               })
             })
 
+            maps.event.addListener(popup, 'closeclick', function () {
+              scope.$apply(function () {
+                map.fitBounds(bounds)
+                delete scope.focusedLocation
+              })
+            })
+
             angular.extend(location, {
               marker: marker,
               popup: popup
@@ -100,7 +146,17 @@ define([
             }
 
             if (location) {
+              var offsets = getOffsets()
+              offsets.y = -iEl.height() / 2
+
+              map.panToWithOffset(location.latlng, offsets.x, offsets.y + 100)
               location.popup.open(map, location.marker)
+            }
+          })
+
+          scope.$watch('disclosed', function (disclosed) {
+            if (false == disclosed) {
+              map.fitBounds(bounds)
             }
           })
         },
