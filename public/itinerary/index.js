@@ -94,4 +94,25 @@ define([
         }
       }
     })
+
+    .directive('tawItineraryImage', function ($log) {
+      return {
+        restrict: 'A',
+        template: '' +
+          '<div>' +
+          '  <button type="button" class="btn btn-primary" ng-click="showImage=true" ng-hide="showImage">' +
+          '    <i class="fa fa-camera"></i> Show Picture' +
+          '  </button>' +
+          '  <img ng-if="showImage" class="img-rounded img-responsive" ng-src="{{resolvedImageURI}}">' +
+          '</div>',
+        replace: false,
+        scope: {
+          imageURI: '@tawItineraryImage',
+          showImage: '@tawImmediate'
+        },
+        controller: function ($scope) {
+          $scope.resolvedImageURI = require.toUrl('.' + $scope.imageURI)
+        }
+      }
+    })
 })

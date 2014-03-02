@@ -13,4 +13,4 @@ PUT         /services/invitees/:id        services.Invitees.updateOneById(id:BSO
 
 GET         /webjars/*file                controllers.WebJarAssets.at(file)
 
-GET         /4/*file                      controllers.Assets.at(path="/public", file)
+GET         /6/*file                      controllers.Assets.at(path="/public", file)
