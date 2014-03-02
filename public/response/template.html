@@ -18,7 +18,7 @@
           <div class="row">
             <div class="col-xs-12">
               <p ng-hide="attendees">
-                Please <span ng-show="isTouch">tap</span> <span ng-show="!isTouch">click on</span> the name of each person who will attend.
+                Please <span ng-show="isTouch">tap</span> <span ng-show="!isTouch">click on</span> the name of each person who will attend the DC wedding.
               </p>
 
               <p ng-show="attendees">
@@ -27,6 +27,7 @@
             </div>
           </div>
         </div>
+
         <div class="content attendees container-fluid">
           <div class="row">
             <div class="col-xs-12">
@@ -43,9 +44,11 @@
         <div class="content container-fluid">
           <div class="row" ng-hide="attendees">
             <div class="col-xs-12">
-              <p class="help-block">
-                <em>If nobody is attending, no further response is needed.</em>
+              <p>
+                <span ng-show="alternateReceptionInvitees.length">You're invited to celebrate with us at a reception in Clyde, OH on Saturday, June 28, 2014 if you're unable to attend the wedding event in DC.</span>
+                If no one in this party is attending the DC wedding, no further response is needed.
               </p>
+              <br>
             </div>
           </div>
           <div class="row" ng-show="attendees">

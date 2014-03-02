@@ -8,6 +8,15 @@ define([
   , 'angular-resource'
   , 'restangular'
 ], function ($, angular, _, template) {
+
+  function toArray(value) {
+    if (angular.isArray(value)) {
+      return value
+    }
+
+    return []
+  }
+
   return angular
     .module('taw.response', [ 'ngResource', 'restangular' ])
 
@@ -56,6 +65,15 @@ define([
 
           $scope.$watch('group.comments', function (comments) {
             save('comments', comments)
+          })
+
+          $scope.$watch('group.invitees', function (invitees) {
+            invitees = toArray(invitees)
+
+            $scope.alternateReceptionInvitees = invitees.filter(function (invitee) {
+              return (invitee.flags || {}).alternateReception
+            })
+
           })
         }
       }
