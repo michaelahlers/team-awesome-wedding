@@ -1,3 +1,4 @@
+@(name: String, code: String)
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,14 +15,13 @@
       <section class="taw-letter">
         <div class="layout-center">
           <div class="layout-body">
-            <div class="card card-code page-curl shadow-bottom">
+            <div class="card card-letter page-curl shadow-bottom">
               <header class="container-fluid">
                 <div class="row">
                   <div class="col-xs-12">
                     <h1 class="text-center">
-                      <div class="name">Heather</div>
-                      <div class="join">&amp;</div>
-                      <div class="name">Michael</div>
+                      <span class="word">Eat</span><span class="join">, </span><span class="word">Drink</span><span class="join">, and </span><span
+                    class="word">Be Married!</span>
                     </h1>
                   </div>
                 </div>
@@ -30,7 +30,25 @@
               <div class="content container-fluid">
                 <div class="row">
                   <div class="col-xs-12">
-                    <p>Testing</p>
+                    <p>Dear @name,</p>
+
+                    <br>
+
+                    <p>Please join us to celebrate our marriage! To view your invitation and RSVP, click on the following link:</p>
+
+                    <br>
+
+                    <p class="text-center">
+                      <a href="http://heatherandmichael.info/enter/@code">http://heatherandmichael.info/enter/@code</a>
+                    </p>
+
+                    <br>
+
+                    <p>We look forward to hearing from you!</p>
+
+                    <br>
+
+                    <p class="text-right">&mdash;Heather and Michael</p>
                   </div>
                 </div>
               </div>

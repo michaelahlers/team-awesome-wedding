@@ -1,5 +1,5 @@
 GET         /                             controllers.Application.index
-GET         /letter                       controllers.Application.letter
+GET         /letter/:name/:code           controllers.Application.letter(name:String, code:String)
 
 GET         /enter/:code                  controllers.Application.enter(code:String)
 GET         /login/:code                  controllers.Application.login(code:String)

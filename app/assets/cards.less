@@ -16,7 +16,8 @@
 
   &.card-code,
   &.card-response,
-  &.card-itinerary {
+  &.card-itinerary,
+  &.card-letter {
     > header {
       h1 {
         font-family: 'Parisian', serif;
@@ -86,8 +87,8 @@
 
   .lh-border-radius(6px);
 
-  &.card-invitation {
-
+  &.card-invitation,
+  &.card-letter {
     > header {
       h1 {
         text-align: center;
@@ -112,7 +113,9 @@
         }
       }
     }
+  }
 
+  &.card-invitation {
     > .content {
 
       p {
@@ -247,6 +250,16 @@
       .transition(500ms ease-out);
       .translate(0, 100%);
       margin-bottom: 59px;
+    }
+  }
+
+  &.card-letter {
+    > .content {
+
+      p {
+        font-family: Buenard, serif;
+        font-size: 20px;
+      }
     }
   }
 }

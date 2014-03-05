@@ -27,9 +27,9 @@ object Application extends Controller {
       Future(Ok(views.html.index(googleMapsAPIKey)))
   }
 
-  def letter = Action.async {
+  def letter(name: String, code: String) = Action.async {
     request =>
-      Future(Ok(views.html.letter()))
+      Future(Ok(views.html.letter(name, code)))
   }
 
   private def mkLoginAction(code: String, result: JsValue => SimpleResult) = Action.async {
