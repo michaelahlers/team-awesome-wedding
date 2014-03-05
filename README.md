@@ -8,7 +8,7 @@ You might ask: what's with the name? Heather and [Michael](http://github.com/mic
 
 ## Abstract
 
-This site is built on the [Typesafe](http://typesafe.com/) stack ([Scala](http://scala-lang.org/), [Play Framework](http://playframework.com/)), [MongoDB](http://mongodb.org), [ReactiveMongo](http://reactivemongo.org/), [RequireJS](http://requirejs.org/), [AngularJS](http://angularjs.org/), Twitter [Bootstrap](http://getbootstrap.org), [LESS Hat](http://lesshat.madebysource.com/), and others.
+This site is built on the [Typesafe](http://typesafe.com/) stack ([Scala](http://scala-lang.org/), [Play Framework](http://playframework.com/)), [MongoDB](http://mongodb.org), [ReactiveMongo](http://reactivemongo.org/), [RequireJS](http://requirejs.org/), [AngularJS](http://angularjs.org/), Twitter [Bootstrap](http://getbootstrap.org), [LESS Hat](http://lesshat.madebysource.com/), and others. It's deployed to [Heroku](http://heroku.com/) with the [MongoLab](http://mongolab.com/welcome/) add-on. A few scripts are provided to ease this workflow.
 
 It's a single-page web application where a rich [JavaScript](http://developer.mozilla.org/en-US/docs/Web/JavaScript) client is downloaded once, then all data exchnaged with the server as [JSON](http://json.org/) over [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) web services.
 
