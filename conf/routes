@@ -1,4 +1,6 @@
 GET         /                             controllers.Application.index
+GET         /letter                       controllers.Application.letter
+
 GET         /enter/:code                  controllers.Application.enter(code:String)
 GET         /login/:code                  controllers.Application.login(code:String)
 GET         /exit                         controllers.Application.exit

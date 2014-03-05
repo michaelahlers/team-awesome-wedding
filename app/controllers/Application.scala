@@ -27,6 +27,11 @@ object Application extends Controller {
       Future(Ok(views.html.index(googleMapsAPIKey)))
   }
 
+  def letter = Action.async {
+    request =>
+      Future(Ok(views.html.letter()))
+  }
+
   private def mkLoginAction(code: String, result: JsValue => SimpleResult) = Action.async {
     Groups.findOneByCode(code).flatMap {
       groupOption =>
