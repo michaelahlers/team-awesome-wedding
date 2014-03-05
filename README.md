@@ -18,7 +18,7 @@ The client loads its modules asynchronously with RequireJS, and makes heavy use 
 
 ## Browsers
 
-We've only tested on modern browsers, and no versions of Internet Explorer (it's simply too costly to maintain for a side project like this). _Caveat emptor._
+We've only tested on modern browsers, and no versions of Internet Explorer (it's simply too time-consuming to maintain for a side project like this for Microsoft's troubled browser). _Caveat emptor._
 
 ## Contribute
 
