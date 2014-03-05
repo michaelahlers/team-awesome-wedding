@@ -15,11 +15,11 @@ require({
 
   paths: {
     /* Core AngularJS packages. */
-    'angular': '/webjars/angularjs/1.2.11/angular.min',
-    'angular-animate': '/webjars/angularjs/1.2.11/angular-animate.min',
-    'angular-resource': '/webjars/angularjs/1.2.11/angular-resource.min',
-    'angular-route': '/webjars/angularjs/1.2.11/angular-route.min',
-    'angular-sanitize': '/webjars/angularjs/1.2.11/angular-sanitize.min',
+    'angular': '/webjars/angularjs/1.2.13/angular.min',
+    'angular-animate': '/webjars/angularjs/1.2.13/angular-animate.min',
+    'angular-resource': '/webjars/angularjs/1.2.13/angular-resource.min',
+    'angular-route': '/webjars/angularjs/1.2.13/angular-route.min',
+    'angular-sanitize': '/webjars/angularjs/1.2.13/angular-sanitize.min',
 
     'bootstrap': 'vendor/bootstrap/dist/js/bootstrap.min',
 

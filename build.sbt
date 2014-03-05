@@ -5,7 +5,7 @@ version := "1.0-SNAPSHOT"
 libraryDependencies ++= Seq(
   "org.reactivemongo" %% "play2-reactivemongo" % "0.10.2",
   "org.webjars" %% "webjars-play" % "2.2.1",
-  "org.webjars" % "angularjs" % "1.2.11",
+  "org.webjars" % "angularjs" % "1.2.13",
   "org.webjars" % "jquery" % "2.1.0-1",
   "org.webjars" % "momentjs" % "2.5.0",
   "org.webjars" % "requirejs" % "2.1.11",
