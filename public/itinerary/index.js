@@ -199,9 +199,12 @@ define([
           '  <button type="button" class="btn btn-primary" ng-click="showImage=true" ng-hide="showImage">' +
           '    <i class="fa fa-camera"></i> Show Picture' +
           '  </button>' +
-          '  <img ng-if="showImage" class="img-rounded img-responsive" taw-image="{{imageURI}}">' +
+          '  <img ng-if="showImage" style="width: 100%;" class="img-rounded img-responsive" taw-image="{{imageURI}}">' +
+          '  <button type="button" style="margin-top: -2em;" class="btn btn-primary" ng-click="showImage=true" ng-show="showImage">' +
+          '    <i class="fa fa-times-circle"></i> Hide Picture' +
+          '  </button>' +
           '</div>',
-        replace: false,
+        replace: true,
         scope: {
           imageURI: '@tawItineraryImage',
           showImage: '@tawImmediate'
