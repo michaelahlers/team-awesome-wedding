@@ -200,7 +200,7 @@ define([
           '    <i class="fa fa-camera"></i> Show Picture' +
           '  </button>' +
           '  <img ng-if="showImage" style="width: 100%;" class="img-rounded img-responsive" taw-image="{{imageURI}}">' +
-          '  <button type="button" style="margin-top: -1.5em;" class="btn btn-default" ng-click="showImage=true" ng-show="showImage">' +
+          '  <button type="button" style="margin-top: -1.5em;" class="btn btn-default" ng-click="showImage=false" ng-show="showImage">' +
           '    <i class="fa fa-times-circle"></i> Hide Picture' +
           '  </button>' +
           '</div>',
