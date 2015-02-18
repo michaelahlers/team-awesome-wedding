@@ -24,7 +24,7 @@ We've only tested on modern browsers, and no versions of Internet Explorer (it's
 
 Anyone is free to use this source for their own benefit! See the included [MIT license](http://github.com/michaelahlers/team-awesome-wedding/blob/master/LICENSE.md). Pull-requests to this project are probably not useful as the wedding will be done on April 5, 2014. However, you're encouraged to fork it!
 
-If you enjoyed this project in any way, please consider making a donation to its author. Send bitcoins to [`1Fnnf7p8AhBCUG5LUGk1kSKm7iLsJHV1mH`](bitcoin:1Fnnf7p8AhBCUG5LUGk1kSKm7iLsJHV1mH).
+If you enjoyed this project in any way, please consider making a donation to its author. Send bitcoins to [`1LTX3m3Tysf3XQTQm3rnn15hGnL8nmwRRK`](bitcoin:1LTX3m3Tysf3XQTQm3rnn15hGnL8nmwRRK).
 
 ## Acknowledgements
 
